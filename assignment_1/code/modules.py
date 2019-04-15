@@ -190,7 +190,7 @@ class SoftMaxModule(object):
         ########################
         # PUT YOUR CODE HERE  #
         #######################
-        dx = dout.T @ (- self._out @ self._out.T + np.diag(self._out))
+        dx = dout.T @ (- self._out @ self._out.T + np.diag(self._out**2))
         # print(dx.shape)
         ########################
         # END OF YOUR CODE    #
