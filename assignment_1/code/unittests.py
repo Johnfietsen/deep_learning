@@ -1,10 +1,10 @@
 import unittest
 import numpy as np
-import torch
-import torch.nn as nn
+# import torch
+# import torch.nn as nn
 
 from modules import LinearModule, ReLUModule, SoftMaxModule, CrossEntropyModule
-from custom_batchnorm import CustomBatchNormAutograd, CustomBatchNormManualFunction, CustomBatchNormManualModule
+# from custom_batchnorm import CustomBatchNormAutograd, CustomBatchNormManualFunction, CustomBatchNormManualModule
 from gradient_check import eval_numerical_gradient, eval_numerical_gradient_array
 
 def rel_error(x, y):
@@ -144,8 +144,8 @@ class TestLayers(unittest.TestCase):
 
 
 if __name__ == '__main__':
-  # suite = unittest.TestLoader().loadTestsFromTestCase(TestLosses)
-  # unittest.TextTestRunner(verbosity=2).run(suite)
+  suite = unittest.TestLoader().loadTestsFromTestCase(TestLosses)
+  unittest.TextTestRunner(verbosity=2).run(suite)
 
   suite = unittest.TestLoader().loadTestsFromTestCase(TestLayers)
   unittest.TextTestRunner(verbosity=2).run(suite)

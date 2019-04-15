@@ -1,4 +1,4 @@
-s"""
+"""
 This module implements a multi-layer perceptron (MLP) in NumPy.
 You should fill in code into indicated sections.
 """
@@ -43,8 +43,8 @@ class MLP(object):
 
     def forward(self, x):
         """
-        Performs forward pass of the input. Here an input tensor x is transformed
-        through several layer transformations.
+        Performs forward pass of the input. Here an input tensor x is
+        transformed through several layer transformations.
 
         Args:
           x: input to the network

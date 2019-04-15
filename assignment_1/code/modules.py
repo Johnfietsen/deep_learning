@@ -27,10 +27,10 @@ class LinearModule(object):
         # PUT YOUR CODE HERE  #
         #######################
         self.params = {'weight': np.random.normal(0, 0.0001, \
-                                                  (in_features, out_features)),
-                       'bias': np.zeros(1, out_features)}
-        self.grads = {'weight': np.zeros(3, in_features, out_features),
-                      'bias': np.zeros(1, out_features)}
+                                                  (out_features, in_features)),
+                       'bias': np.zeros((out_features, 1))}
+        self.grads = {'weight': np.zeros((out_features, in_features)),
+                      'bias': np.zeros((out_features, 1))}
         ########################
         # END OF YOUR CODE    #
         #######################
@@ -54,7 +54,8 @@ class LinearModule(object):
         ########################
         # PUT YOUR CODE HERE  #
         #######################
-        out = x @ self.params['weight'] + self.params['bias']
+        self._x = x
+        out = x @ self.params['weight'].T + self.params['bias'].T
         ########################
         # END OF YOUR CODE    #
         #######################
@@ -72,16 +73,16 @@ class LinearModule(object):
 
         TODO:
         Implement backward pass of the module. Store gradient of the loss with
-        respect to layer parameters in self.grads['weight'] and self.grads['bias'].
+        respect to layer parameters in self.grads['weight'] and
+        self.grads['bias'].
         """
 
         ########################
         # PUT YOUR CODE HERE  #
         #######################
-
-        # no need to update bias???
-        self.grads['weight'] = dout @ self.params['weight'].T
-        dx = self.grads['weight'] + self.grads['bias']
+        self.grads['weight'] = dout.T @ self._x
+        self.grads['bias'] = dout
+        dx = dout @ self.params['weight']
         ########################
         # END OF YOUR CODE    #
         #######################
@@ -111,7 +112,7 @@ class ReLUModule(object):
         ########################
         # PUT YOUR CODE HERE  #
         #######################
-        out = np.max([0, x])
+        out = np.maximum(np.zeros(x.shape), x)
         ########################
         # END OF YOUR CODE    #
         #######################
@@ -134,7 +135,7 @@ class ReLUModule(object):
         ########################
         # PUT YOUR CODE HERE  #
         #######################
-        dx = dout @ np.diag([len(dout), len(dout)], 1)
+        dx = dout @ np.diag(np.ones(dout.shape[1]))
         ########################
         # END OF YOUR CODE    #
         #######################
@@ -165,7 +166,8 @@ class SoftMaxModule(object):
         ########################
         # PUT YOUR CODE HERE  #
         #######################
-        raise NotImplementedError
+        out = x / np.sum(x, axis=0)
+        self._out = out
         ########################
         # END OF YOUR CODE    #
         #######################
@@ -177,7 +179,7 @@ class SoftMaxModule(object):
         Backward pass.
 
         Args:
-          dout: gradients of the previous modul
+          dout: gradients of the previous module
         Returns:
           dx: gradients with respect to the input of the module
 
@@ -188,12 +190,13 @@ class SoftMaxModule(object):
         ########################
         # PUT YOUR CODE HERE  #
         #######################
-        raise NotImplementedError
+        dx = dout.T @ (- self._out @ self._out.T + np.diag(self._out))
+        # print(dx.shape)
         ########################
         # END OF YOUR CODE    #
         #######################
 
-        return dx
+        return dx.T
 
 class CrossEntropyModule(object):
     """
@@ -216,7 +219,7 @@ class CrossEntropyModule(object):
         ########################
         # PUT YOUR CODE HERE  #
         #######################
-        raise NotImplementedError
+        out = - np.sum(y * np.log(x))
         ########################
         # END OF YOUR CODE    #
         #######################
@@ -240,7 +243,7 @@ class CrossEntropyModule(object):
         ########################
         # PUT YOUR CODE HERE  #
         #######################
-        raise NotImplementedError
+        dx = - y / x
         ########################
         # END OF YOUR CODE    #
         #######################
