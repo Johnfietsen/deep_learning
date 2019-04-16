@@ -47,8 +47,8 @@ class LinearModule(object):
         TODO:
         Implement forward pass of the module.
 
-        Hint: You can store intermediate variables inside the object. They can be
-        used in backward pass computation.
+        Hint: You can store intermediate variables inside the object. They can
+        be used in backward pass computation.
         """
 
         ########################
@@ -105,14 +105,15 @@ class ReLUModule(object):
         TODO:
         Implement forward pass of the module.
 
-        Hint: You can store intermediate variables inside the object. They can be
-        used in backward pass computation.
+        Hint: You can store intermediate variables inside the object. They can
+        be used in backward pass computation.
         """
 
         ########################
         # PUT YOUR CODE HERE  #
         #######################
         out = np.maximum(np.zeros(x.shape), x)
+        self._out = out
         ########################
         # END OF YOUR CODE    #
         #######################
@@ -159,8 +160,8 @@ class SoftMaxModule(object):
         To stabilize computation you should use the so-called Max Trick
         https://timvieira.github.io/blog/post/2014/02/11/exp-normalize-trick/
 
-        Hint: You can store intermediate variables inside the object. They can be
-        used in backward pass computation.
+        Hint: You can store intermediate variables inside the object. They can
+        be used in backward pass computation.
         """
 
         ########################
@@ -191,7 +192,6 @@ class SoftMaxModule(object):
         # PUT YOUR CODE HERE  #
         #######################
         dx = dout.T @ (- self._out @ self._out.T + np.diag(self._out))
-        # print(dx.shape)
         ########################
         # END OF YOUR CODE    #
         #######################
