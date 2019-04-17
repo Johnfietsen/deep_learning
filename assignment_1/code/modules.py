@@ -81,7 +81,7 @@ class LinearModule(object):
         # PUT YOUR CODE HERE  #
         #######################
         self.grads['weight'] = dout.T @ self._x
-        self.grads['bias'] = dout
+        self.grads['bias'] = dout.T @ np.ones((dout.shape[0], 1))
         dx = dout @ self.params['weight']
         ########################
         # END OF YOUR CODE    #
@@ -112,13 +112,12 @@ class ReLUModule(object):
         ########################
         # PUT YOUR CODE HERE  #
         #######################
-        out = np.maximum(np.zeros(x.shape), x)
-        self._out = out
+        self._out = np.maximum(0, x)
         ########################
         # END OF YOUR CODE    #
         #######################
 
-        return out
+        return self._out
 
     def backward(self, dout):
         """
@@ -136,7 +135,7 @@ class ReLUModule(object):
         ########################
         # PUT YOUR CODE HERE  #
         #######################
-        dx = dout @ np.diag(np.ones(dout.shape[1]))
+        dx = dout * (self._out > 0)
         ########################
         # END OF YOUR CODE    #
         #######################
@@ -167,13 +166,15 @@ class SoftMaxModule(object):
         ########################
         # PUT YOUR CODE HERE  #
         #######################
-        out = x / np.sum(x, axis=0)
-        self._out = out
+        max_x = np.reshape(x.max(axis=1), (x.shape[0], 1))
+
+        nume = np.exp(x - max_x)
+        self._out = nume / np.reshape(np.sum(nume, axis=1), (x.shape[0], 1))
         ########################
         # END OF YOUR CODE    #
         #######################
 
-        return out
+        return self._out
 
     def backward(self, dout):
         """
@@ -191,12 +192,53 @@ class SoftMaxModule(object):
         ########################
         # PUT YOUR CODE HERE  #
         #######################
-        dx = dout.T @ (- self._out @ self._out.T + np.diag(self._out))
+        print('self._out', self._out.shape)
+        print('dout', dout.shape)
+
+        tmp_tensor = np.array([[[]]])
+
+        i = 0
+        for point in self._out:
+            tmp_tensor,append(self._out @ self._out.T)
+            i += 1
+        # zeros((self._out.shape[0], self._out.shape[1],\
+        #                        self._out.shape[1]))
+        print('tmp', tmp_tensor.shape)
+
+        # print(self._out.shape) # (7, 52)
+        # dx = dout.T @ (- self._out ** 2 + np.diag(self._out))
+        # print(dx.shape)
+        # print(self._out.shape)
+        # dx = - self._out @ self._out.T
+        # print(dx.shape)
         ########################
         # END OF YOUR CODE    #
         #######################
 
-        return dx.T
+
+        # #crazy shit over here!
+        #
+        # #explicit dimensions
+        # batch_size = self._out.shape[0] #mini batch size
+        # dim = self._out.shape[1] #feature dimension
+        #
+        # #creates a tensor with self.out elements in the diagonal
+        # diag_xN = np.zeros((batch_size, dim, dim))
+        # ii = np.arange(dim)
+        # diag_xN[:, ii, ii] = self._out
+        #
+        # #einstein sum convention to the rescue! :sunglasses:
+        # #first we calculate the dx/d\tilde{x}
+        # dxdx_t = diag_xN - np.einsum('ij, ik -> ijk', self._out, self._out)
+        #
+        #
+        # dx = np.einsum('ij, ijk -> ik', dout, dxdx_t)
+
+        print('dx', dx.shape)
+        # print('dxdx_t', dxdx_t.shape)
+        # print('diag_xN', diag_xN.shape)
+
+        return dx
 
 class CrossEntropyModule(object):
     """
