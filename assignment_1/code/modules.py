@@ -192,51 +192,14 @@ class SoftMaxModule(object):
         ########################
         # PUT YOUR CODE HERE  #
         #######################
-        print('self._out', self._out.shape)
-        print('dout', dout.shape)
+        diagonal = [np.diag(x) for x in self._out]
 
-        tmp_tensor = np.array([[[]]])
+        derivative = diagonal - np.einsum('ij, ik -> ijk', self._out, self._out)
 
-        i = 0
-        for point in self._out:
-            tmp_tensor,append(self._out @ self._out.T)
-            i += 1
-        # zeros((self._out.shape[0], self._out.shape[1],\
-        #                        self._out.shape[1]))
-        print('tmp', tmp_tensor.shape)
-
-        # print(self._out.shape) # (7, 52)
-        # dx = dout.T @ (- self._out ** 2 + np.diag(self._out))
-        # print(dx.shape)
-        # print(self._out.shape)
-        # dx = - self._out @ self._out.T
-        # print(dx.shape)
+        dx = np.einsum('ij, ijk -> ik', dout, derivative)
         ########################
         # END OF YOUR CODE    #
         #######################
-
-
-        # #crazy shit over here!
-        #
-        # #explicit dimensions
-        # batch_size = self._out.shape[0] #mini batch size
-        # dim = self._out.shape[1] #feature dimension
-        #
-        # #creates a tensor with self.out elements in the diagonal
-        # diag_xN = np.zeros((batch_size, dim, dim))
-        # ii = np.arange(dim)
-        # diag_xN[:, ii, ii] = self._out
-        #
-        # #einstein sum convention to the rescue! :sunglasses:
-        # #first we calculate the dx/d\tilde{x}
-        # dxdx_t = diag_xN - np.einsum('ij, ik -> ijk', self._out, self._out)
-        #
-        #
-        # dx = np.einsum('ij, ijk -> ik', dout, dxdx_t)
-
-        print('dx', dx.shape)
-        # print('dxdx_t', dxdx_t.shape)
-        # print('diag_xN', diag_xN.shape)
 
         return dx
 
@@ -261,6 +224,8 @@ class CrossEntropyModule(object):
         ########################
         # PUT YOUR CODE HERE  #
         #######################
+
+        # normalize?
         out = - np.sum(y * np.log(x))
         ########################
         # END OF YOUR CODE    #
@@ -285,6 +250,8 @@ class CrossEntropyModule(object):
         ########################
         # PUT YOUR CODE HERE  #
         #######################
+
+        # normalize?
         dx = - y / x
         ########################
         # END OF YOUR CODE    #
