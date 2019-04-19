@@ -83,6 +83,7 @@ class LinearModule(object):
         self.grads['weight'] = dout.T @ self._x
         self.grads['bias'] = dout.T @ np.ones((dout.shape[0], 1))
         dx = dout @ self.params['weight']
+        print('\n', self.params['weight'])
         ########################
         # END OF YOUR CODE    #
         #######################
@@ -166,10 +167,11 @@ class SoftMaxModule(object):
         ########################
         # PUT YOUR CODE HERE  #
         #######################
-        max_x = np.reshape(x.max(axis=1), (x.shape[0], 1))
+        sz = x.shape[0]
+        max_x = np.reshape(x.max(axis=1), (sz, 1))
 
-        nume = np.exp(x - max_x)
-        self._out = nume / np.reshape(np.sum(nume, axis=1), (x.shape[0], 1))
+        num = np.exp(x - max_x)
+        self._out = num / np.reshape(np.sum(num, axis=1), (sz, 1))
         ########################
         # END OF YOUR CODE    #
         #######################
@@ -226,7 +228,7 @@ class CrossEntropyModule(object):
         #######################
 
         # normalize?
-        out = - np.sum(y * np.log(x))
+        out = - np.sum(y * np.log(x + 1e-5)) / len(y)
         ########################
         # END OF YOUR CODE    #
         #######################
@@ -252,7 +254,7 @@ class CrossEntropyModule(object):
         #######################
 
         # normalize?
-        dx = - y / x
+        dx = - y / (len(y) * (x + 1e-5))
         ########################
         # END OF YOUR CODE    #
         #######################

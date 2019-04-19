@@ -88,8 +88,6 @@ class MLP(object):
         # END OF YOUR CODE    #
         #######################
 
-        # print(out)
-
         return out
 
     def backward(self, dout):

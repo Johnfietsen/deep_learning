@@ -14,6 +14,7 @@ from mlp_numpy import MLP
 from modules import CrossEntropyModule
 import cifar10_utils
 import sys
+import time
 
 # Default constants
 DNN_HIDDEN_UNITS_DEFAULT = '100'
@@ -48,7 +49,7 @@ def accuracy(predictions, targets):
     ########################
     # PUT YOUR CODE HERE  #
     #######################
-    accuracy = 0.2
+    accuracy = (predictions.argmax(axis=1) == targets.argmax(axis=1)).mean()
     ########################
     # END OF YOUR CODE    #
     #######################
@@ -144,24 +145,24 @@ def train():
                 str(accu['train'][-1]) + '/' + str(loss['train'][-1]) + \
                 ' | test acc/loss ' + str(accu['test'][-1]) + '/' + \
                 str(loss['test'][-1])
+
             logs.append(s)
             sys.stdout.write("\r%s" % s)
             sys.stdout.flush()
 
-
     t = str(time.time())
 
     # write logs
-    with open('logs_' + t + '.txt', 'w') as f:
-        f.writeliens(['%s\n' % item for item in logs])
+    with open('results/logs_' + t + '.txt', 'w') as f:
+        f.writelines(['%s\n' % item for item in logs])
 
     # write data to file
-    with open('data_' + t + '.txt', 'w') as f:
-        f.write('train accuracy,')
+    with open('restuls/data_' + t + '.txt', 'w') as f:
+        f.write('train accuracy')
         f.writelines([',%s' % str(item) for item in accu['train']])
-        f.write('\ntrain loss,')
+        f.write('\ntrain loss')
         f.writelines([',%s' % str(item) for item in loss['train']])
-        f.write('\ntest accuracy,')
+        f.write('\ntest accuracy')
         f.writelines([',%s' % str(item) for item in accu['test']])
         f.write('\ntest loss')
         f.writelines([',%s' % str(item) for item in loss['test']])
