@@ -83,7 +83,6 @@ class LinearModule(object):
         self.grads['weight'] = dout.T @ self._x
         self.grads['bias'] = dout.T @ np.ones((dout.shape[0], 1))
         dx = dout @ self.params['weight']
-        print('\n', self.params['weight'])
         ########################
         # END OF YOUR CODE    #
         #######################

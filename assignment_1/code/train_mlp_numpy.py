@@ -7,6 +7,8 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
+from modules import LinearModule
+
 import argparse
 import numpy as np
 import os
@@ -83,20 +85,22 @@ def train():
     # PUT YOUR CODE HERE  #
     #######################
 
-    # initialize empty dictionaries
-    x, y, accu, loss = ({} for _ in range(4))
-
-    # store data in variables
+    # retreive data
     data = cifar10_utils.get_cifar10(FLAGS.data_dir)
+
+    # determine shapes of matrices
     image_shape = data['test'].images[0].shape
     nr_pixels = image_shape[0] * image_shape[1] * image_shape[2]
     nr_labels = data['test'].labels.shape[1]
-    for tag in data:
-        nr_images = data[tag].images.shape[0]
-        x[tag] = np.reshape(data[tag].images, (nr_images, nr_pixels))
-        y[tag] = np.reshape(data[tag].labels, (nr_images, nr_labels))
-        accu[tag] = []
-        loss[tag] = []
+    nr_test = data['test'].images.shape[0]
+
+    # store test data in variables
+    x_test = np.reshape(data['test'].images, (nr_test, nr_pixels))
+    y_test = np.reshape(data['test'].labels, (nr_test, nr_labels))
+
+    # initalize dictionaries
+    accu = {'test' : [], 'train' : []}
+    loss = {'test' : [], 'train' : []}
 
     # create neural network
     neural_network = MLP(nr_pixels, dnn_hidden_units, nr_labels)
@@ -109,10 +113,11 @@ def train():
 
         i += 1
 
-        # sample batch from data
-        rand_idx = np.random.randint(x['train'].shape[0], size=FLAGS.batch_size)
-        x_batch = x['train'][rand_idx]
-        y_batch = y['train'][rand_idx]
+        # sample batch from data and reshape
+        x_batch, y_batch = data['train'].next_batch(FLAGS.batch_size)
+        nr_batch = x_batch.shape[0]
+        x_batch = np.reshape(x_batch, (nr_batch, nr_pixels))
+        y_batch = np.reshape(y_batch, (nr_batch, nr_labels))
 
         # apply forward and backward pass
         nn_out = neural_network.forward(x_batch)
@@ -122,7 +127,7 @@ def train():
 
         # update weights
         for layer in neural_network.layers:
-            if type(layer) == 'modules.LinearModule':
+            if isinstance(layer, LinearModule):
                 layer.params['weight'] -= FLAGS.learning_rate * \
                                           layer.grads['weight']
                 layer.params['bias'] -= FLAGS.learning_rate * \
@@ -135,9 +140,9 @@ def train():
             loss['train'].append(ce_out)
 
             # calculate and save test accuracy and loss
-            nn_out = neural_network.forward(x['test'])
-            ce_out = cross_entropy.forward(nn_out, y['test'])
-            accu['test'].append(accuracy(nn_out, y['test']))
+            nn_out = neural_network.forward(x_test)
+            ce_out = cross_entropy.forward(nn_out, y_test)
+            accu['test'].append(accuracy(nn_out, y_test))
             loss['test'].append(ce_out)
 
             # show results in command prompt and save log
@@ -147,8 +152,10 @@ def train():
                 str(loss['test'][-1])
 
             logs.append(s)
-            sys.stdout.write("\r%s" % s)
-            sys.stdout.flush()
+            print(s)
+            #sys.stdout.write("\r%s" % s)
+            #sys.stdout.flush()
+
 
     t = str(time.time())
 
@@ -157,7 +164,7 @@ def train():
         f.writelines(['%s\n' % item for item in logs])
 
     # write data to file
-    with open('restuls/data_' + t + '.txt', 'w') as f:
+    with open('results/data_' + t + '.txt', 'w') as f:
         f.write('train accuracy')
         f.writelines([',%s' % str(item) for item in accu['train']])
         f.write('\ntrain loss')
