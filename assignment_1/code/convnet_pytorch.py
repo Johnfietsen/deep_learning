@@ -6,6 +6,9 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
+import torch
+import torch.nn as nn
+
 class ConvNet(nn.Module):
   """
   This class implements a Convolutional Neural Network in PyTorch.
@@ -15,13 +18,13 @@ class ConvNet(nn.Module):
 
   def __init__(self, n_channels, n_classes):
     """
-    Initializes ConvNet object. 
-    
+    Initializes ConvNet object.
+
     Args:
       n_channels: number of input channels
       n_classes: number of classes of the classification problem
-                 
-    
+
+
     TODO:
     Implement initialization of the network.
     """
@@ -29,21 +32,79 @@ class ConvNet(nn.Module):
     ########################
     # PUT YOUR CODE HERE  #
     #######################
-    raise NotImplementedError
+    super(ConvNet, self).__init__()
+
+    layer = []
+
+    layers.append(nn.Conv2d(in_channels=3, out_channels=64,\
+                            kernel_size=3, stride=1, padding=1))
+    layers.append(nn.BatchNorm2d(num_features=64))
+    layers.append(nn.ReLU())
+
+    layers.append(nn.MaxPool2d(kernel_size=3, stride=2, padding=1))
+
+    layers.append(nn.Conv2d(in_channels=64, out_channels=128,\
+                            kernel_size=3, stride=1, padding=1))
+    layers.append(nn.BatchNorm2d(num_features=128))
+    layers.append(nn.ReLU())
+
+    layers.append(nn.MaxPool2d(kernel_size=3, stride=2, padding=1))
+
+    layers.append(nn.Conv2d(in_channels=128, out_channels=256,\
+                            kernel_size=3, stride=1, padding=1))
+    layers.append(nn.BatchNorm2d(num_features=256))
+    layers.append(nn.ReLU())
+
+    layers.append(nn.Conv2d(in_channels=256, out_channels=256,\
+                            kernel_size=3, stride=1, padding=1))
+    layers.append(nn.BatchNorm2d(num_features=256))
+    layers.append(nn.ReLU())
+
+    layers.append(nn.MaxPool2d(kernel_size=3, stride=2, padding=1))
+
+    layers.append(nn.Conv2d(in_channels=256, out_channels=512,\
+                            kernel_size=3, stride=1, padding=1))
+    layers.append(nn.BatchNorm2d(num_features=512))
+    layers.append(nn.ReLU())
+
+    layers.append(nn.Conv2d(in_channels=512, out_channels=512,\
+                            kernel_size=3, stride=1, padding=1))
+    layers.append(nn.BatchNorm2d(num_features=512))
+    layers.append(nn.ReLU())
+
+    layers.append(nn.MaxPool2d(kernel_size=3, stride=2, padding=1))
+
+    layers.append(nn.Conv2d(in_channels=512, out_channels=512,\
+                            kernel_size=3, stride=1, padding=1))
+    layers.append(nn.BatchNorm2d(num_features=512))
+    layers.append(nn.ReLU())
+
+    layers.append(nn.Conv2d(in_channels=512, out_channels=512,\
+                            kernel_size=3, stride=1, padding=1))
+    layers.append(nn.BatchNorm2d(num_features=512))
+    layers.append(nn.ReLU())
+
+    layers.append(nn.MaxPool2d(kernel_size=3, stride=2, padding=1))
+
+    layers.append(nn.AvgPool2d(kernel_size=1, stride=1, padding=0))
+
+    layersappend(nn.Linear(512, 10))
+
+    self._neural_network = nn.Squential(*layers)
     ########################
     # END OF YOUR CODE    #
     #######################
 
   def forward(self, x):
     """
-    Performs forward pass of the input. Here an input tensor x is transformed through 
+    Performs forward pass of the input. Here an input tensor x is transformed through
     several layer transformations.
-    
+
     Args:
       x: input to the network
     Returns:
       out: outputs of the network
-    
+
     TODO:
     Implement forward pass of the network.
     """
@@ -51,7 +112,7 @@ class ConvNet(nn.Module):
     ########################
     # PUT YOUR CODE HERE  #
     #######################
-    raise NotImplementedError
+    out = self._neural_network(x)
     ########################
     # END OF YOUR CODE    #
     #######################

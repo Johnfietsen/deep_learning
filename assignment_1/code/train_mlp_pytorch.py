@@ -50,7 +50,7 @@ def accuracy(predictions, targets):
     # PUT YOUR CODE HERE  #
     #######################
     accuracy = (predictions.argmax(dim=1) == targets.argmax(dim=1))\
-                .type(torch.FloatTensor).mean()
+                .type(torch.FloatTensor).mean().item()
     ########################
     # END OF YOUR CODE    #
     #######################
@@ -98,7 +98,7 @@ def train():
 
     # set standards
     tensor = torch.FloatTensor
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
     # save in variables
     for tag in data:
@@ -112,8 +112,8 @@ def train():
 
 
     # create neural network
-    neural_network = MLP(nr_pixels, dnn_hidden_units, nr_labels)
-    cross_entropy = nn.CrossEntropyLoss()
+    neural_network = MLP(nr_pixels, dnn_hidden_units, nr_labels).to(device)
+    cross_entropy = nn.CrossEntropyLoss().to(device)
     parameter_optimizer = torch.optim.Adam(neural_network.parameters(), \
                                  FLAGS.learning_rate)
 
@@ -146,14 +146,14 @@ def train():
             nn_out = neural_network.forward(x['test'])
             ce_out = cross_entropy.forward(nn_out, y['test'].argmax(dim=1))
             accu['test'].append(accuracy(nn_out, y['test']))
-            loss['test'].append(ce_out)
+            loss['test'].append(ce_out.item())
 
             # show results in command prompt and save log
             s = 'iteration ' + str(i) + ' | train acc/loss ' + \
-                str('{:.3f}'.format(accu['train'][-1].item())) + '/' + \
-                str('{:.3f}'.format(loss['train'][-1].item())) + ' | test acc/loss ' \
-                + str('{:.3f}'.format(accu['test'][-1].item())) + '/' + \
-                str('{:.3f}'.format(loss['test'][-1].item()))
+                str('{:.3f}'.format(accu['train'][-1])) + '/' + \
+                str('{:.3f}'.format(loss['train'][-1])) + ' | test acc/loss ' \
+                + str('{:.3f}'.format(accu['test'][-1])) + '/' + \
+                str('{:.3f}'.format(loss['test'][-1]))
 
             logs.append(s)
             print(s)

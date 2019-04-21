@@ -28,7 +28,7 @@ def accuracy(predictions, targets):
   """
   Computes the prediction accuracy, i.e. the average of correct predictions
   of the network.
-  
+
   Args:
     predictions: 2D float array of size [batch_size, n_classes]
     labels: 2D int array of size [batch_size, n_classes]
@@ -37,7 +37,7 @@ def accuracy(predictions, targets):
   Returns:
     accuracy: scalar float, the accuracy of predictions,
               i.e. the average correct predictions over the whole batch
-  
+
   TODO:
   Implement accuracy computation.
   """
@@ -45,7 +45,8 @@ def accuracy(predictions, targets):
   ########################
   # PUT YOUR CODE HERE  #
   #######################
-  raise NotImplementedError
+  accuracy = (predictions.argmax(dim=1) == targets.argmax(dim=1))\
+                .type(torch.FloatTensor).mean()
   ########################
   # END OF YOUR CODE    #
   #######################
@@ -54,7 +55,7 @@ def accuracy(predictions, targets):
 
 def train():
   """
-  Performs training and evaluation of ConvNet model. 
+  Performs training and evaluation of ConvNet model.
 
   TODO:
   Implement training and evaluation of ConvNet model. Evaluate your model on the whole test set each eval_freq iterations.
