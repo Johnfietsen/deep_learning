@@ -88,9 +88,9 @@ class ConvNet(nn.Module):
 
         layers.append(nn.AvgPool2d(kernel_size=1, stride=1, padding=0))
 
-        layersappend(nn.Linear(512, 10))
+        layers.append(nn.Linear(512, 10))
 
-        self._neural_network = nn.Squential(*layers)
+        self._neural_network = nn.Sequential(*layers)
         ########################
         # END OF YOUR CODE    #
         #######################
