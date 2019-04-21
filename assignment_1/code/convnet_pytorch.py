@@ -10,111 +10,111 @@ import torch
 import torch.nn as nn
 
 class ConvNet(nn.Module):
-  """
-  This class implements a Convolutional Neural Network in PyTorch.
-  It handles the different layers and parameters of the model.
-  Once initialized an ConvNet object can perform forward.
-  """
-
-  def __init__(self, n_channels, n_classes):
     """
-    Initializes ConvNet object.
-
-    Args:
-      n_channels: number of input channels
-      n_classes: number of classes of the classification problem
-
-
-    TODO:
-    Implement initialization of the network.
+    This class implements a Convolutional Neural Network in PyTorch.
+    It handles the different layers and parameters of the model.
+    Once initialized an ConvNet object can perform forward.
     """
 
-    ########################
-    # PUT YOUR CODE HERE  #
-    #######################
-    super(ConvNet, self).__init__()
+    def __init__(self, n_channels, n_classes):
+        """
+        Initializes ConvNet object.
 
-    layer = []
+        Args:
+          n_channels: number of input channels
+          n_classes: number of classes of the classification problem
 
-    layers.append(nn.Conv2d(in_channels=3, out_channels=64,\
-                            kernel_size=3, stride=1, padding=1))
-    layers.append(nn.BatchNorm2d(num_features=64))
-    layers.append(nn.ReLU())
 
-    layers.append(nn.MaxPool2d(kernel_size=3, stride=2, padding=1))
+        TODO:
+        Implement initialization of the network.
+        """
 
-    layers.append(nn.Conv2d(in_channels=64, out_channels=128,\
-                            kernel_size=3, stride=1, padding=1))
-    layers.append(nn.BatchNorm2d(num_features=128))
-    layers.append(nn.ReLU())
+        ########################
+        # PUT YOUR CODE HERE  #
+        #######################
+        super(ConvNet, self).__init__()
 
-    layers.append(nn.MaxPool2d(kernel_size=3, stride=2, padding=1))
+        layer = []
 
-    layers.append(nn.Conv2d(in_channels=128, out_channels=256,\
-                            kernel_size=3, stride=1, padding=1))
-    layers.append(nn.BatchNorm2d(num_features=256))
-    layers.append(nn.ReLU())
+        layers.append(nn.Conv2d(in_channels=3, out_channels=64,\
+                                kernel_size=3, stride=1, padding=1))
+        layers.append(nn.BatchNorm2d(num_features=64))
+        layers.append(nn.ReLU())
 
-    layers.append(nn.Conv2d(in_channels=256, out_channels=256,\
-                            kernel_size=3, stride=1, padding=1))
-    layers.append(nn.BatchNorm2d(num_features=256))
-    layers.append(nn.ReLU())
+        layers.append(nn.MaxPool2d(kernel_size=3, stride=2, padding=1))
 
-    layers.append(nn.MaxPool2d(kernel_size=3, stride=2, padding=1))
+        layers.append(nn.Conv2d(in_channels=64, out_channels=128,\
+                                kernel_size=3, stride=1, padding=1))
+        layers.append(nn.BatchNorm2d(num_features=128))
+        layers.append(nn.ReLU())
 
-    layers.append(nn.Conv2d(in_channels=256, out_channels=512,\
-                            kernel_size=3, stride=1, padding=1))
-    layers.append(nn.BatchNorm2d(num_features=512))
-    layers.append(nn.ReLU())
+        layers.append(nn.MaxPool2d(kernel_size=3, stride=2, padding=1))
 
-    layers.append(nn.Conv2d(in_channels=512, out_channels=512,\
-                            kernel_size=3, stride=1, padding=1))
-    layers.append(nn.BatchNorm2d(num_features=512))
-    layers.append(nn.ReLU())
+        layers.append(nn.Conv2d(in_channels=128, out_channels=256,\
+                                kernel_size=3, stride=1, padding=1))
+        layers.append(nn.BatchNorm2d(num_features=256))
+        layers.append(nn.ReLU())
 
-    layers.append(nn.MaxPool2d(kernel_size=3, stride=2, padding=1))
+        layers.append(nn.Conv2d(in_channels=256, out_channels=256,\
+                                kernel_size=3, stride=1, padding=1))
+        layers.append(nn.BatchNorm2d(num_features=256))
+        layers.append(nn.ReLU())
 
-    layers.append(nn.Conv2d(in_channels=512, out_channels=512,\
-                            kernel_size=3, stride=1, padding=1))
-    layers.append(nn.BatchNorm2d(num_features=512))
-    layers.append(nn.ReLU())
+        layers.append(nn.MaxPool2d(kernel_size=3, stride=2, padding=1))
 
-    layers.append(nn.Conv2d(in_channels=512, out_channels=512,\
-                            kernel_size=3, stride=1, padding=1))
-    layers.append(nn.BatchNorm2d(num_features=512))
-    layers.append(nn.ReLU())
+        layers.append(nn.Conv2d(in_channels=256, out_channels=512,\
+                                kernel_size=3, stride=1, padding=1))
+        layers.append(nn.BatchNorm2d(num_features=512))
+        layers.append(nn.ReLU())
 
-    layers.append(nn.MaxPool2d(kernel_size=3, stride=2, padding=1))
+        layers.append(nn.Conv2d(in_channels=512, out_channels=512,\
+                                kernel_size=3, stride=1, padding=1))
+        layers.append(nn.BatchNorm2d(num_features=512))
+        layers.append(nn.ReLU())
 
-    layers.append(nn.AvgPool2d(kernel_size=1, stride=1, padding=0))
+        layers.append(nn.MaxPool2d(kernel_size=3, stride=2, padding=1))
 
-    layersappend(nn.Linear(512, 10))
+        layers.append(nn.Conv2d(in_channels=512, out_channels=512,\
+                                kernel_size=3, stride=1, padding=1))
+        layers.append(nn.BatchNorm2d(num_features=512))
+        layers.append(nn.ReLU())
 
-    self._neural_network = nn.Squential(*layers)
-    ########################
-    # END OF YOUR CODE    #
-    #######################
+        layers.append(nn.Conv2d(in_channels=512, out_channels=512,\
+                                kernel_size=3, stride=1, padding=1))
+        layers.append(nn.BatchNorm2d(num_features=512))
+        layers.append(nn.ReLU())
 
-  def forward(self, x):
-    """
-    Performs forward pass of the input. Here an input tensor x is transformed through
-    several layer transformations.
+        layers.append(nn.MaxPool2d(kernel_size=3, stride=2, padding=1))
 
-    Args:
-      x: input to the network
-    Returns:
-      out: outputs of the network
+        layers.append(nn.AvgPool2d(kernel_size=1, stride=1, padding=0))
 
-    TODO:
-    Implement forward pass of the network.
-    """
+        layersappend(nn.Linear(512, 10))
 
-    ########################
-    # PUT YOUR CODE HERE  #
-    #######################
-    out = self._neural_network(x)
-    ########################
-    # END OF YOUR CODE    #
-    #######################
+        self._neural_network = nn.Squential(*layers)
+        ########################
+        # END OF YOUR CODE    #
+        #######################
 
-    return out
+    def forward(self, x):
+        """
+        Performs forward pass of the input. Here an input tensor x is transformed through
+        several layer transformations.
+
+        Args:
+          x: input to the network
+        Returns:
+          out: outputs of the network
+
+        TODO:
+        Implement forward pass of the network.
+        """
+
+        ########################
+        # PUT YOUR CODE HERE  #
+        #######################
+        out = self._neural_network(x)
+        ########################
+        # END OF YOUR CODE    #
+        #######################
+
+        return out
