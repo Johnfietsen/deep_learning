@@ -90,18 +90,19 @@ def train():
     # save in variables
     for tag in data:
         nr_images = data[tag].images.shape[0]
-        x_tmp = np.reshape(data[tag].images, (nr_images, nr_pixels))
-        y_tmp = np.reshape(data[tag].labels, (nr_images, nr_labels))
-        x[tag] = torch.tensor(x_tmp).type(tensor).to(device)
-        y[tag] = torch.tensor(y_tmp).type(tensor).to(device)
+        x[tag] = torch.tensor(data[tag].images)
+        y[tag] = torch.tensor(data[tag].labels)
         accu[tag] = []
         loss[tag] = []
+
+    x['test'] = x['test'].type(tensor).to(device)
+    y['test'] = y['test'].type(tensor).to(device)
 
     # create neural network
     neural_network = ConvNet(nr_pixels, nr_labels).to(device)
     cross_entropy = nn.CrossEntropyLoss().to(device)
-    parameter_optimizer = torch.optim.Adam(neural_network.parameters(), \
-                                 FLAGS.learning_rate)
+    parameter_optimizer = torch.optim.Adam(params=neural_network.parameters(), \
+                                 lr=FLAGS.learning_rate)
 
 
     dx = 1
@@ -114,8 +115,8 @@ def train():
 
         # sample batch from data
         rand_idx = np.random.randint(x['train'].shape[0], size=FLAGS.batch_size)
-        x_batch = x['train'][rand_idx]
-        y_batch = y['train'][rand_idx]
+        x_batch = x['train'][rand_idx].type(tensor).to(device)
+        y_batch = y['train'][rand_idx].type(tensor).to(device)
 
         parameter_optimizer.zero_grad()
 
