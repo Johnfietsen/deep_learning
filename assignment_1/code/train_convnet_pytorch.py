@@ -98,7 +98,7 @@ def train():
         loss[tag] = []
 
     # create neural network
-    neural_network = ConvNet(nr_pixels, dnn_hidden_units, nr_labels).to(device)
+    neural_network = ConvNet(nr_pixels, nr_labels).to(device)
     cross_entropy = nn.CrossEntropyLoss().to(device)
     parameter_optimizer = torch.optim.Adam(neural_network.parameters(), \
                                  FLAGS.learning_rate)
