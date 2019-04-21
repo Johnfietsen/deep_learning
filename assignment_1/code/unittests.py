@@ -1,7 +1,7 @@
 import unittest
 import numpy as np
-# import torch
-# import torch.nn as nn
+import torch
+import torch.nn as nn
 
 from modules import LinearModule, ReLUModule, SoftMaxModule, CrossEntropyModule
 # from custom_batchnorm import CustomBatchNormAutograd, CustomBatchNormManualFunction, CustomBatchNormManualModule
@@ -150,5 +150,5 @@ if __name__ == '__main__':
   suite = unittest.TestLoader().loadTestsFromTestCase(TestLayers)
   unittest.TextTestRunner(verbosity=2).run(suite)
 
-  # suite = unittest.TestLoader().loadTestsFromTestCase(TestBatchNorm)
-  # unittest.TextTestRunner(verbosity=3).run(suite)
+  suite = unittest.TestLoader().loadTestsFromTestCase(TestBatchNorm)
+  unittest.TextTestRunner(verbosity=3).run(suite)

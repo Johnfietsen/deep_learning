@@ -1,0 +1,15 @@
+iteration 100 | train acc/loss 0.380/1.782 | test acc/loss 0.371/1.750
+iteration 200 | train acc/loss 0.400/1.642 | test acc/loss 0.430/1.615
+iteration 300 | train acc/loss 0.425/1.616 | test acc/loss 0.397/1.707
+iteration 400 | train acc/loss 0.500/1.541 | test acc/loss 0.461/1.535
+iteration 500 | train acc/loss 0.475/1.464 | test acc/loss 0.468/1.512
+iteration 600 | train acc/loss 0.515/1.366 | test acc/loss 0.467/1.509
+iteration 700 | train acc/loss 0.495/1.406 | test acc/loss 0.453/1.554
+iteration 800 | train acc/loss 0.507/1.375 | test acc/loss 0.487/1.468
+iteration 900 | train acc/loss 0.535/1.286 | test acc/loss 0.462/1.545
+iteration 1000 | train acc/loss 0.540/1.355 | test acc/loss 0.469/1.545
+iteration 1100 | train acc/loss 0.557/1.308 | test acc/loss 0.478/1.487
+iteration 1200 | train acc/loss 0.547/1.362 | test acc/loss 0.460/1.562
+iteration 1300 | train acc/loss 0.527/1.339 | test acc/loss 0.459/1.567
+iteration 1400 | train acc/loss 0.535/1.310 | test acc/loss 0.488/1.460
+iteration 1500 | train acc/loss 0.570/1.252 | test acc/loss 0.480/1.516

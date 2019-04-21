@@ -57,7 +57,7 @@ class MLP(object):
 
             # other layers
             else:
-                self.layers.append(LinearModule(n_hidden[i], n_hidden[i + 1]))
+                self.layers.append(LinearModule(n_hidden[i - 1], n_hidden[i]))
                 self.layers.append(ReLUModule())
 
         ########################

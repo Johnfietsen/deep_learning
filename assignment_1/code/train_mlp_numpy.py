@@ -85,22 +85,25 @@ def train():
     # PUT YOUR CODE HERE  #
     #######################
 
-    # retreive data
+    # initialize empty dictionaries
+    x, y, accu, loss = ({} for _ in range(4))
+
+    # retrieve data
     data = cifar10_utils.get_cifar10(FLAGS.data_dir)
 
-    # determine shapes of matrices
+    # determine shapes
     image_shape = data['test'].images[0].shape
     nr_pixels = image_shape[0] * image_shape[1] * image_shape[2]
     nr_labels = data['test'].labels.shape[1]
     nr_test = data['test'].images.shape[0]
 
-    # store test data in variables
-    x_test = np.reshape(data['test'].images, (nr_test, nr_pixels))
-    y_test = np.reshape(data['test'].labels, (nr_test, nr_labels))
-
-    # initalize dictionaries
-    accu = {'test' : [], 'train' : []}
-    loss = {'test' : [], 'train' : []}
+    # save in variables
+    for tag in data:
+        nr_images = data[tag].images.shape[0]
+        x[tag] = np.reshape(data[tag].images, (nr_images, nr_pixels))
+        y[tag] = np.reshape(data[tag].labels, (nr_images, nr_labels))
+        accu[tag] = []
+        loss[tag] = []
 
     # create neural network
     neural_network = MLP(nr_pixels, dnn_hidden_units, nr_labels)
@@ -113,11 +116,10 @@ def train():
 
         i += 1
 
-        # sample batch from data and reshape
-        x_batch, y_batch = data['train'].next_batch(FLAGS.batch_size)
-        nr_batch = x_batch.shape[0]
-        x_batch = np.reshape(x_batch, (nr_batch, nr_pixels))
-        y_batch = np.reshape(y_batch, (nr_batch, nr_labels))
+        # sample batch from data
+        rand_idx = np.random.randint(x['train'].shape[0], size=FLAGS.batch_size)
+        x_batch = x['train'][rand_idx]
+        y_batch = y['train'][rand_idx]
 
         # apply forward and backward pass
         nn_out = neural_network.forward(x_batch)
@@ -140,16 +142,16 @@ def train():
             loss['train'].append(ce_out)
 
             # calculate and save test accuracy and loss
-            nn_out = neural_network.forward(x_test)
-            ce_out = cross_entropy.forward(nn_out, y_test)
-            accu['test'].append(accuracy(nn_out, y_test))
+            nn_out = neural_network.forward(x['test'])
+            ce_out = cross_entropy.forward(nn_out, y['test'])
+            accu['test'].append(accuracy(nn_out, y['test']))
             loss['test'].append(ce_out)
 
             # show results in command prompt and save log
             s = 'iteration ' + str(i) + ' | train acc/loss ' + \
-                str(accu['train'][-1]) + '/' + str(loss['train'][-1]) + \
-                ' | test acc/loss ' + str(accu['test'][-1]) + '/' + \
-                str(loss['test'][-1])
+                str('{:.3f}'.format(accu['train'][-1])) + '/' + str('{:.3f}'.format(loss['train'][-1])) + \
+                ' | test acc/loss ' + str('{:.3f}'.format(accu['test'][-1])) + '/' + \
+                str('{:.3f}'.format(loss['test'][-1]))
 
             logs.append(s)
             print(s)
