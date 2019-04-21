@@ -104,7 +104,8 @@ def train():
 
     dx = 1
     i = 0
-    logs = []
+    logs = ['\n'.join([key + ' : ' + str(value)
+                      for key, value in vars(FLAGS).items()])]
     while i < FLAGS.max_steps and np.linalg.norm(dx) > 1e-5:
 
         i += 1
@@ -171,7 +172,7 @@ def print_flags():
     Prints all entries in FLAGS variable.
     """
     for key, value in vars(FLAGS).items():
-    print(key + ' : ' + str(value))
+        print(key + ' : ' + str(value))
 
 def main():
     """

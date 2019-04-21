@@ -119,7 +119,8 @@ def train():
 
     dx = 1
     i = 0
-    logs = []
+    logs = ['\n'.join([key + ' : ' + str(value)
+                      for key, value in vars(FLAGS).items()])]
     while i < FLAGS.max_steps and np.linalg.norm(dx) > 1e-5:
 
         i += 1
