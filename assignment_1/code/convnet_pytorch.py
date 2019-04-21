@@ -34,7 +34,7 @@ class ConvNet(nn.Module):
         #######################
         super(ConvNet, self).__init__()
 
-        layer = []
+        layers = []
 
         layers.append(nn.Conv2d(in_channels=3, out_channels=64,\
                                 kernel_size=3, stride=1, padding=1))
