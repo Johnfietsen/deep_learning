@@ -182,7 +182,7 @@ def main():
     print_flags()
 
     if not os.path.exists(FLAGS.data_dir):
-    os.makedirs(FLAGS.data_dir)
+        os.makedirs(FLAGS.data_dir)
 
     # Run the training operation
     train()
