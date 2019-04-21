@@ -15,6 +15,7 @@ import numpy as np
 import os
 from mlp_pytorch import MLP
 import cifar10_utils
+import matplotlib.pyplot as plt
 
 # Default constants
 DNN_HIDDEN_UNITS_DEFAULT = '100'
@@ -178,6 +179,21 @@ def train():
         f.writelines([',%s' % str(item) for item in accu['test']])
         f.write('\ntest loss')
         f.writelines([',%s' % str(item) for item in loss['test']])
+
+    # plot accuracy
+    axis = [j for j in range(int(i / FLAGS.eval_freq))]
+    plt.plot(axis, accu['train'], label='train')
+    plt.plot(axis, accu['test'], label='test')
+    plt.legend()
+    plt.savefig('acc_pytorch.png')
+    plt.clf()
+
+    # plot loss
+    plt.plot(axis, loss['train'], label='train')
+    plt.plot(axis, loss['test'], label='test')
+    plt.legend()
+    plt.savefig('loss_pytorch.png')
+    plt.clf()
     ########################
     # END OF YOUR CODE    #
     #######################
