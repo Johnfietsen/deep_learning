@@ -34,63 +34,62 @@ class ConvNet(nn.Module):
         #######################
         super(ConvNet, self).__init__()
 
-        layers = []
+        self.layers = []
 
-        layers.append(nn.Conv2d(in_channels=3, out_channels=64,\
+        self.layers.append(nn.Conv2d(in_channels=3, out_channels=64,\
                                 kernel_size=3, stride=1, padding=1))
-        layers.append(nn.BatchNorm2d(num_features=64))
-        layers.append(nn.ReLU())
+        self.layers.append(nn.BatchNorm2d(num_features=64))
+        self.layers.append(nn.ReLU())
 
-        layers.append(nn.MaxPool2d(kernel_size=3, stride=2, padding=1))
+        self.layers.append(nn.MaxPool2d(kernel_size=3, stride=2, padding=1))
 
-        layers.append(nn.Conv2d(in_channels=64, out_channels=128,\
+        self.layers.append(nn.Conv2d(in_channels=64, out_channels=128,\
                                 kernel_size=3, stride=1, padding=1))
-        layers.append(nn.BatchNorm2d(num_features=128))
-        layers.append(nn.ReLU())
+        self.layers.append(nn.BatchNorm2d(num_features=128))
+        self.layers.append(nn.ReLU())
 
-        layers.append(nn.MaxPool2d(kernel_size=3, stride=2, padding=1))
+        self.layers.append(nn.MaxPool2d(kernel_size=3, stride=2, padding=1))
 
-        layers.append(nn.Conv2d(in_channels=128, out_channels=256,\
+        self.layers.append(nn.Conv2d(in_channels=128, out_channels=256,\
                                 kernel_size=3, stride=1, padding=1))
-        layers.append(nn.BatchNorm2d(num_features=256))
-        layers.append(nn.ReLU())
+        self.layers.append(nn.BatchNorm2d(num_features=256))
+        self.layers.append(nn.ReLU())
 
-        layers.append(nn.Conv2d(in_channels=256, out_channels=256,\
+        self.layers.append(nn.Conv2d(in_channels=256, out_channels=256,\
                                 kernel_size=3, stride=1, padding=1))
-        layers.append(nn.BatchNorm2d(num_features=256))
-        layers.append(nn.ReLU())
+        self.layers.append(nn.BatchNorm2d(num_features=256))
+        self.layers.append(nn.ReLU())
 
-        layers.append(nn.MaxPool2d(kernel_size=3, stride=2, padding=1))
+        self.layers.append(nn.MaxPool2d(kernel_size=3, stride=2, padding=1))
 
-        layers.append(nn.Conv2d(in_channels=256, out_channels=512,\
+        self.layers.append(nn.Conv2d(in_channels=256, out_channels=512,\
                                 kernel_size=3, stride=1, padding=1))
-        layers.append(nn.BatchNorm2d(num_features=512))
-        layers.append(nn.ReLU())
+        self.layers.append(nn.BatchNorm2d(num_features=512))
+        self.layers.append(nn.ReLU())
 
-        layers.append(nn.Conv2d(in_channels=512, out_channels=512,\
+        self.layers.append(nn.Conv2d(in_channels=512, out_channels=512,\
                                 kernel_size=3, stride=1, padding=1))
-        layers.append(nn.BatchNorm2d(num_features=512))
-        layers.append(nn.ReLU())
+        self.layers.append(nn.BatchNorm2d(num_features=512))
+        self.layers.append(nn.ReLU())
 
-        layers.append(nn.MaxPool2d(kernel_size=3, stride=2, padding=1))
+        self.layers.append(nn.MaxPool2d(kernel_size=3, stride=2, padding=1))
 
-        layers.append(nn.Conv2d(in_channels=512, out_channels=512,\
+        self.layers.append(nn.Conv2d(in_channels=512, out_channels=512,\
                                 kernel_size=3, stride=1, padding=1))
-        layers.append(nn.BatchNorm2d(num_features=512))
-        layers.append(nn.ReLU())
+        self.layers.append(nn.BatchNorm2d(num_features=512))
+        self.layers.append(nn.ReLU())
 
-        layers.append(nn.Conv2d(in_channels=512, out_channels=512,\
+        self.layers.append(nn.Conv2d(in_channels=512, out_channels=512,\
                                 kernel_size=3, stride=1, padding=1))
-        layers.append(nn.BatchNorm2d(num_features=512))
-        layers.append(nn.ReLU())
+        self.layers.append(nn.BatchNorm2d(num_features=512))
+        self.layers.append(nn.ReLU())
 
-        layers.append(nn.MaxPool2d(kernel_size=3, stride=2, padding=1))
+        self.layers.append(nn.MaxPool2d(kernel_size=3, stride=2, padding=1))
 
-        layers.append(nn.AvgPool2d(kernel_size=1, stride=1, padding=0))
+        self.layers.append(nn.AvgPool2d(kernel_size=1, stride=1, padding=0))
 
-        layersappend(nn.Linear(512, 10))
+        self.layers.append(nn.Linear(512, 10))
 
-        self._neural_network = nn.Squential(*layers)
         ########################
         # END OF YOUR CODE    #
         #######################
@@ -112,7 +111,7 @@ class ConvNet(nn.Module):
         ########################
         # PUT YOUR CODE HERE  #
         #######################
-        out = self._neural_network(x)
+        out = self.layers(x)
         ########################
         # END OF YOUR CODE    #
         #######################
