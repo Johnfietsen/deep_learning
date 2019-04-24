@@ -25,10 +25,38 @@ import torch.nn as nn
 
 class VanillaRNN(nn.Module):
 
-    def __init__(self, seq_length, input_dim, num_hidden, num_classes, batch_size, device='cpu'):
+    def __init__(self, seq_length, input_dim, num_hidden, num_classes, \
+                 batch_size, device='cpu'):
         super(VanillaRNN, self).__init__()
-        # Initialization here ...
+
+        # save values for later use
+        self._seq_length = seq_length
+        self._batch_size = batch_size
+
+        # input-to-hidden
+        self._Whx = nn.Parameter(torch.tensor((num_hidden, input_dim))\
+                                 .random_())
+
+        # hidden-to-hidden
+        self._Whh = nn.Parameter(torch.tensor((num_hidden, num_hidden))\
+                                 .random_())
+
+        # bias
+        self._bh = nn.Parameter(torch.tensor((num_hidden, 1)).random_())
+
+        # hidden-to-output
+        self._Wph = nn.Parameters(torch.tensor((num_classes, num_hidden))\
+                                  .random_())
+
+        # bias
+        self._bp = nn.Parameter(torch.tensor((num_classes, 1)).random_())
+
+        self._h = [torch.tensor((num_hidden, 1)).random_()]
+        self._p = [torch.tensor((num_classes, 1)).random_()]
 
     def forward(self, x):
-        # Implementation here ...
-        pass
+
+        for i in range(1, self._seq_length + 1):
+            self._h.append(nn.tanh(self._Whx @ x \
+                           + self_Whh @ self._h[i - 1] + self._bh))
+            self._p.append(self._Wph @ self._h[i] + self._bp)
