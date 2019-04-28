@@ -20,6 +20,7 @@ from __future__ import print_function
 
 import torch
 import torch.nn as nn
+import copy as cp
 
 ################################################################################
 
@@ -31,32 +32,40 @@ class VanillaRNN(nn.Module):
 
         # save values for later use
         self._seq_length = seq_length
+        self._input_dim = input_dim
+        self._num_hidden = num_hidden
         self._batch_size = batch_size
 
+        a = 1 / num_hidden
+        b = 1 / num_classes
+
         # input-to-hidden
-        self._Whx = nn.Parameter(torch.tensor((num_hidden, input_dim))\
-                                 .random_())
+        self._Whx = nn.Parameter(a * torch.randn((input_dim, num_hidden)))
 
         # hidden-to-hidden
-        self._Whh = nn.Parameter(torch.tensor((num_hidden, num_hidden))\
-                                 .random_())
+        self._Whh = nn.Parameter(a * torch.randn((num_hidden, num_hidden)))
 
         # bias
-        self._bh = nn.Parameter(torch.tensor((num_hidden, 1)).random_())
+        self._bh = nn.Parameter(a * torch.randn((num_hidden, 1)))
 
         # hidden-to-output
-        self._Wph = nn.Parameters(torch.tensor((num_classes, num_hidden))\
-                                  .random_())
+        self._Wph = nn.Parameter(a * torch.randn((num_classes, num_hidden)))
 
         # bias
-        self._bp = nn.Parameter(torch.tensor((num_classes, 1)).random_())
+        self._bp = nn.Parameter(b * torch.randn((num_classes, 1)))
 
-        self._h = [torch.tensor((num_hidden, 1)).random_()]
-        self._p = [torch.tensor((num_classes, 1)).random_()]
 
     def forward(self, x):
 
-        for i in range(1, self._seq_length + 1):
-            self._h.append(nn.tanh(self._Whx @ x \
-                           + self_Whh @ self._h[i - 1] + self._bh))
-            self._p.append(self._Wph @ self._h[i] + self._bp)
+        # initialize hidden state
+        h = torch.zeros(self._num_hidden, self._batch_size)
+
+        # loop through sequence
+        for i in range(self._seq_length):
+
+            # calculate h
+            h = torch.tanh(self._Whx @ x[:, i].view(-1, self._input_dim) +
+                           self._Whh @ h + self._bh)
+
+        # return p
+        return torch.transpose(self._Wph @ h + self._bp, 0, 1)
