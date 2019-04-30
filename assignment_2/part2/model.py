@@ -28,6 +28,15 @@ class TextGenerationModel(nn.Module):
         super(TextGenerationModel, self).__init__()
         # Initialization here...
 
+        self._device = device
+
+        self._lstm = nn.LSTM(vocabulary_size, lstm_num_hidden, lstm_num_layers)
+
+        self._linear = nn.Linear(lstm_num_hidden, vocabulary_size)
+
     def forward(self, x):
         # Implementation here...
-        pass
+
+        out, _ = self._lstm(x)
+
+        return self._linear(out).to(self._device)
