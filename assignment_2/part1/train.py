@@ -25,6 +25,7 @@ import numpy as np
 
 import torch
 import torch.nn as nn
+import torch.optim as optim
 from torch.utils.data import DataLoader
 
 from dataset import PalindromeDataset
@@ -44,7 +45,6 @@ def train(config):
     device = torch.device(config.device)
 
     # Initialize the model that we are going to use
-
     if config.model_type == 'RNN':
         model = VanillaRNN(config.input_length, config.input_dim, \
                             config.num_hidden, config.num_classes, \
@@ -61,7 +61,7 @@ def train(config):
 
     # Setup the loss and optimizer
     criterion = nn.CrossEntropyLoss()
-    optimizer = torch.optim.RMSprop(model.parameters(), lr=config.learning_rate)
+    optimizer = optim.RMSprop(model.parameters(), lr=config.learning_rate)
 
     for step, (batch_inputs, batch_targets) in enumerate(data_loader):
 
@@ -69,25 +69,21 @@ def train(config):
         t1 = time.time()
 
         # Add more code here ...
-        x_batch = torch.tensor(batch_inputs, dtype=torch.float, device=device)
-        y_batch = torch.tensor(batch_targets, dtype=torch.long, device=device)
-
-        # Add more code here ...
-        nn_out = model(x_batch)
-        loss = criterion(nn_out, y_batch)
-        accuracy = torch.sum(nn_out.argmax(dim=1) == y_batch).to(torch.float) \
-                             / (config.batch_size)
         optimizer.zero_grad()
+        nn_out = model(batch_inputs)
+        loss = criterion(nn_out, batch_targets)
         loss.backward()
 
         ########################################################################
         # QUESTION: what happens here and why?
         ########################################################################
-        torch.nn.utils.clip_grad_norm_(model.parameters(), \
-                                      max_norm=config.max_norm)
+        nn.utils.clip_grad_norm_(model.parameters(), max_norm=config.max_norm)
         ########################################################################
 
         optimizer.step()
+
+        accuracy = torch.sum(nn_out.argmax(dim=1) == batch_targets)\
+                             .to(torch.float) / (config.batch_size)
 
         # Just for time measurement
         t2 = time.time()
