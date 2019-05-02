@@ -38,6 +38,7 @@ def train(config):
 
     # Initialize the device which to run the model on
     device = torch.device(config.device)
+    print('device used:', device)
 
     # Initialize the dataset and data loader (note the +1)
     dataset = TextDataset(config.txt_file, config.seq_length)
