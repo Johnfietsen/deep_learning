@@ -77,9 +77,8 @@ def train(config):
         nn.utils.clip_grad_norm_(model.parameters(), max_norm=config.max_norm)
         optimizer.step()
 
-        accuracy = torch.sum(nn_out.view(-1, dataset.vocab_size).argmax(dim=1) \
-                             == y_batch.view(-1)).to(torch.float) \
-                    / (config.batch_size)
+        accuracy = (torch.argmax(nn_out, dim=2) == y_batch).sum().item()\
+                    / (config.batch_size * config.seq_length)
 
         # Just for time measurement
         t2 = time.time()

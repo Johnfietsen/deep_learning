@@ -28,10 +28,14 @@ class TextGenerationModel(nn.Module):
         super(TextGenerationModel, self).__init__()
         # Initialization here...
 
+        # for use in forward pass
         self._device = device
 
-        self._lstm = nn.LSTM(vocabulary_size, lstm_num_hidden, lstm_num_layers)
+        # stacked LSTMs
+        self._lstm = nn.LSTM(vocabulary_size, lstm_num_hidden, lstm_num_layers,
+                             dropout=0.5)
 
+        # output layer
         self._linear = nn.Linear(lstm_num_hidden, vocabulary_size)
 
     def forward(self, x):
