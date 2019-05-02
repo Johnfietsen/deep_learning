@@ -1,3 +1,4 @@
+
 # MIT License
 #
 # Copyright (c) 2017 Tom Runia
@@ -69,6 +70,7 @@ def train(config):
     # Setup the loss and optimizer
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.RMSprop(model.parameters(), lr=config.learning_rate)
+    epoch = 0
 
     for step, (batch_inputs, batch_targets) in enumerate(data_loader):
 
@@ -79,7 +81,9 @@ def train(config):
         # Add more code here ...
         #######################################################
 
-        x_batch = torch.zeros(config.seq_length, config.batch_size, \
+        batch_size = batch_inputs[0].size(0)
+
+        x_batch = torch.zeros(config.seq_length, batch_size, \
                               dataset.vocab_size)
         x_batch.scatter_(2, torch.stack(batch_inputs).unsqueeze_(-1), 1)
         x_batch = x_batch.to(device)
@@ -94,7 +98,7 @@ def train(config):
         optimizer.step()
 
         accuracy = (torch.argmax(nn_out, dim=2) == y_batch).sum().item()\
-                    / (config.batch_size * config.seq_length)
+                    / (batch_size * config.seq_length)
 
         # Just for time measurement
         t2 = time.time()
@@ -122,6 +126,8 @@ def train(config):
             # If you receive a PyTorch data-loader error, check this bug report:
             # https://github.com/pytorch/pytorch/pull/9655
             break
+
+        epoch += 1
 
     print('Done training.')
 
@@ -153,6 +159,8 @@ if __name__ == "__main__":
                         help='Number of examples to process in a batch')
     parser.add_argument('--learning_rate', type=float, default=2e-3, \
                         help='Learning rate')
+    parser.add_argument('--epochs', type=int, default=1, \
+                        help='Number of epochs')
 
     # It is not necessary to implement the following three params,
     # but it may help training.
