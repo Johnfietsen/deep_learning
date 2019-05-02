@@ -81,8 +81,8 @@ def train(config):
 
         x_batch = torch.zeros(config.seq_length, config.batch_size, \
                               dataset.vocab_size)
-        x_batch.scatter_(2, torch.stack(batch_inputs).unsqueeze_(-1), 1)\
-               .to(device)
+        x_batch.scatter_(2, torch.stack(batch_inputs).unsqueeze_(-1), 1)
+        x_batch = x_batch.to(device)
         y_batch = torch.stack(batch_targets).to(device)
 
         optimizer.zero_grad()
@@ -114,6 +114,7 @@ def train(config):
             # Generate some sentences by sampling from the model
             c = torch.zeros(1, 1, dataset.vocab_size)
             c[0, 0, np.random.randint(0, dataset.vocab_size + 1)] = 1
+            c = c.to(device)
             sentence = generate_sentence(model, dataset, config.seq_length, c)
             print(sentence)
 

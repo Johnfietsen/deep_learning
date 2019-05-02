@@ -38,11 +38,11 @@ class TextGenerationModel(nn.Module):
         # output layer
         self._linear = nn.Linear(lstm_num_hidden, vocabulary_size)
 
-        # self.to(device)
+        self.to(device)
 
     def forward(self, x):
         # Implementation here...
-
+        
         out, (h, c) = self._lstm(x)
 
         return self._linear(out).to(self._device), h.to(self._device), \
@@ -50,10 +50,6 @@ class TextGenerationModel(nn.Module):
 
 
     def generate_character(self, x, h, c):
-
-        x.get_device()
-        h.get_device()
-        c.get_device()
 
         out, (h, c) = self._lstm(x, (h, c))
 
