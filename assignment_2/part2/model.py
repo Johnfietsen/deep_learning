@@ -44,11 +44,11 @@ class TextGenerationModel(nn.Module):
 
         out, (h, c) = self._lstm(x)
 
-        return self._linear(out).to(self._device), h, c
+        return self._linear(out).to(self._device), h.to(device), c.to(device)
 
 
     def generate_character(self, x, h, c):
 
         out, (h, c) = self._lstm(x, (h, c))
 
-        return self._linear(out).to(self._device), h, c
+        return self._linear(out).to(self._device), h.to(device), c.to(device)
