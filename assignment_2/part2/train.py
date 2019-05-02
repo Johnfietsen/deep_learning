@@ -65,8 +65,9 @@ def train(config):
         #######################################################
 
         x_batch = torch.zeros(config.seq_length, config.batch_size, \
-                              dataset.vocab_size).to(device)
-        x_batch.scatter_(2, torch.stack(batch_inputs).unsqueeze_(-1), 1)
+                              dataset.vocab_size)
+        x_batch.scatter_(2, torch.stack(batch_inputs).unsqueeze_(-1), 1)\
+               .to(device)
         y_batch = torch.stack(batch_targets).to(device)
 
         optimizer.zero_grad()
