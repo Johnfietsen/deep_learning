@@ -70,64 +70,62 @@ def train(config):
     # Setup the loss and optimizer
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.RMSprop(model.parameters(), lr=config.learning_rate)
-    epoch = 0
 
-    for step, (batch_inputs, batch_targets) in enumerate(data_loader):
+    for epoch in range(config.epochs):
+        for step, (batch_inputs, batch_targets) in enumerate(data_loader):
 
-        # Only for time measurement of step through network
-        t1 = time.time()
+            # Only for time measurement of step through network
+            t1 = time.time()
 
-        #######################################################
-        # Add more code here ...
-        #######################################################
+            #######################################################
+            # Add more code here ...
+            #######################################################
 
-        batch_size = batch_inputs[0].size(0)
+            batch_size = batch_inputs[0].size(0)
 
-        x_batch = torch.zeros(config.seq_length, batch_size, \
-                              dataset.vocab_size)
-        x_batch.scatter_(2, torch.stack(batch_inputs).unsqueeze_(-1), 1)
-        x_batch = x_batch.to(device)
-        y_batch = torch.stack(batch_targets).to(device)
+            x_batch = torch.zeros(config.seq_length, batch_size, \
+                                  dataset.vocab_size)
+            x_batch.scatter_(2, torch.stack(batch_inputs).unsqueeze_(-1), 1)
+            x_batch = x_batch.to(device)
+            y_batch = torch.stack(batch_targets).to(device)
 
-        optimizer.zero_grad()
-        nn_out, _, _ = model(x_batch)
-        loss = criterion(nn_out.view(-1, dataset.vocab_size), \
-                         y_batch.view(-1))
-        loss.backward()
-        nn.utils.clip_grad_norm_(model.parameters(), max_norm=config.max_norm)
-        optimizer.step()
+            optimizer.zero_grad()
+            nn_out, _, _ = model(x_batch)
+            loss = criterion(nn_out.view(-1, dataset.vocab_size), \
+                             y_batch.view(-1))
+            loss.backward()
+            nn.utils.clip_grad_norm_(model.parameters(), max_norm=config.max_norm)
+            optimizer.step()
 
-        accuracy = (torch.argmax(nn_out, dim=2) == y_batch).sum().item()\
-                    / (batch_size * config.seq_length)
+            accuracy = (torch.argmax(nn_out, dim=2) == y_batch).sum().item()\
+                        / (batch_size * config.seq_length)
 
-        # Just for time measurement
-        t2 = time.time()
-        examples_per_second = config.batch_size/float(t2-t1)
+            # Just for time measurement
+            t2 = time.time()
+            examples_per_second = config.batch_size/float(t2-t1)
 
-        if step % config.print_every == 0:
+            if step % config.print_every == 0:
 
-            print("[{}] Train Step {:04d}/{:04d}, Batch Size = {},\
-                   Examples/Sec = {:.2f}, "
-                  "Accuracy = {:.2f}, Loss = {:.3f}".format(
-                    datetime.now().strftime("%Y-%m-%d %H:%M"), step,
-                    config.train_steps, config.batch_size, examples_per_second,
-                    accuracy, loss
-            ))
+                print("[{}] Train Step {:04d}/{:04d}, Batch Size = {},\
+                       Examples/Sec = {:.2f}, "
+                      "Accuracy = {:.2f}, Loss = {:.3f}".format(
+                        datetime.now().strftime("%Y-%m-%d %H:%M"), step,
+                        config.train_steps, config.batch_size, examples_per_second,
+                        accuracy, loss
+                ))
 
-        if step % config.sample_every == 0:
-            # Generate some sentences by sampling from the model
-            c = torch.zeros(1, 1, dataset.vocab_size)
-            c[0, 0, np.random.randint(0, dataset.vocab_size)] = 1
-            c = c.to(device)
-            sentence = generate_sentence(model, dataset, config.seq_length, c)
-            print(sentence)
+            if step % config.sample_every == 0:
+                # Generate some sentences by sampling from the model
+                c = torch.zeros(1, 1, dataset.vocab_size)
+                c[0, 0, np.random.randint(0, dataset.vocab_size)] = 1
+                c = c.to(device)
+                sentence = generate_sentence(model, dataset, config.seq_length, c)
+                print(sentence)
 
-        if step == config.train_steps:
-            # If you receive a PyTorch data-loader error, check this bug report:
-            # https://github.com/pytorch/pytorch/pull/9655
-            break
-
-        epoch += 1
+            if step == config.train_steps:
+                # If you receive a PyTorch data-loader error, check this bug report:
+                # https://github.com/pytorch/pytorch/pull/9655
+                break
 
     print('Done training.')
 
