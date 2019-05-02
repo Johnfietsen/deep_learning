@@ -34,6 +34,21 @@ from model import TextGenerationModel
 
 ################################################################################
 
+def generate_sentence(model, dataset, length, first_char):
+
+    sentence = []
+
+    out, h, c = model(first_char)
+
+    for _ in range(length):
+
+        out, h, c = model.generate_character(out, h, c)
+
+        sentence.append(out.argmax().item())
+
+    return dataset.convert_to_string(sentence)
+
+
 def train(config):
 
     # Initialize the device which to run the model on
@@ -54,7 +69,6 @@ def train(config):
     # Setup the loss and optimizer
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.RMSprop(model.parameters(), lr=config.learning_rate)
-    # optimizer = optim.Adam(model.parameters())
 
     for step, (batch_inputs, batch_targets) in enumerate(data_loader):
 
@@ -72,7 +86,7 @@ def train(config):
         y_batch = torch.stack(batch_targets).to(device)
 
         optimizer.zero_grad()
-        nn_out = model(x_batch)
+        nn_out, _, _ = model(x_batch)
         loss = criterion(nn_out.view(-1, dataset.vocab_size), \
                          y_batch.view(-1))
         loss.backward()
@@ -96,9 +110,12 @@ def train(config):
                     accuracy, loss
             ))
 
-        if step == config.sample_every:
+        if step % config.sample_every == 0:
             # Generate some sentences by sampling from the model
-            pass
+            c = torch.zeros(1, 1, dataset.vocab_size)
+            c[0, 0, np.random.randint(0, dataset.vocab_size + 1)] = 1
+            sentence = generate_sentence(model, dataset, config.seq_length, c)
+            print(sentence)
 
         if step == config.train_steps:
             # If you receive a PyTorch data-loader error, check this bug report:
