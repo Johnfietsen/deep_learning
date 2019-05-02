@@ -102,7 +102,7 @@ def train(config):
 
         if step % config.print_every == 0:
 
-            print("[{}] Train Step {:04d}/{:04d}, Batch Size = {}, \
+            print("[{}] Train Step {:04d}/{:04d}, Batch Size = {},\
                    Examples/Sec = {:.2f}, "
                   "Accuracy = {:.2f}, Loss = {:.3f}".format(
                     datetime.now().strftime("%Y-%m-%d %H:%M"), step,
@@ -113,7 +113,7 @@ def train(config):
         if step % config.sample_every == 0:
             # Generate some sentences by sampling from the model
             c = torch.zeros(1, 1, dataset.vocab_size)
-            c[0, 0, np.random.randint(0, dataset.vocab_size + 1)] = 1
+            c[0, 0, np.random.randint(0, dataset.vocab_size)] = 1
             c = c.to(device)
             sentence = generate_sentence(model, dataset, config.seq_length, c)
             print(sentence)
