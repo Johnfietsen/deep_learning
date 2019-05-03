@@ -34,6 +34,7 @@ class LSTM(nn.Module):
         self._seq_length = seq_length
         self._num_hidden = num_hidden
         self._batch_size = batch_size
+        self._device = device
 
         # candidate gate
         self._Wgx = nn.Parameter(torch.zeros(input_dim, num_hidden))
@@ -70,35 +71,42 @@ class LSTM(nn.Module):
         nn.init.kaiming_normal_(self._Woh)
         nn.init.kaiming_normal_(self._Wph)
 
+        self.to(device)
 
     def forward(self, x):
 
         # initialize hidden state
-        h = torch.zeros(self._batch_size, self._num_hidden)
-        c = torch.zeros(self._batch_size, self._num_hidden)
+        h = torch.zeros(self._batch_size, self._num_hidden).to(self._device)
+        c = torch.zeros(self._batch_size, self._num_hidden).to(self._device)
 
         # loop through sequence
         for t in range(self._seq_length):
 
             # candidate gate
             g = torch.tanh(x[:, t, None] @ self._Wgx + h @ self._Wgh + self._bg)
+            g = g.to(self._device)
 
             # input gate
             i = torch.sigmoid(x[:, t, None] @ self._Wix + h @ self._Wih \
                               + self._bi)
+            i = i.to(self._device)
 
             # forget gate
             f = torch.sigmoid(x[:, t, None] @ self._Wfx + h @ self._Wfh \
                               + self._bf)
+            f = f.to(self._device)
 
             # output gate
             o = torch.sigmoid(x[:, t, None] @ self._Wox + h @ self._Woh \
                               + self._bo)
+            o = o.to(self._device)
 
             # hidden state
             c = g * i + c * f
+            c = c.to(self._device)
             h = torch.tanh(c) * o
+            h = h.to(self._device)
 
 
         # calculate p
-        return h @ self._Wph + self._bp
+        return (h @ self._Wph + self._bp).to(self._device)
