@@ -101,7 +101,7 @@ def train(config):
                  accuracy, loss))
 
             print(s)
-            results += accuracy ", "
+            results += str(accuracy.item()) + ", "
 
         if step == config.train_steps:
             # If you receive a PyTorch data-loader error, check this bug report:
@@ -141,7 +141,7 @@ if __name__ == "__main__":
     parser.add_argument('--max_norm', type=float, default=10.0)
     parser.add_argument('--device', type=str, default="cuda:0",
                         help="Training device 'cpu' or 'cuda:0'")
-    parser.add_argument('--max_length', type=int, default=6,
+    parser.add_argument('--max_length', type=int, default=5,
                         help="Maximal length of palindrome")
 
     config = parser.parse_args()
