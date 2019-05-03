@@ -71,9 +71,12 @@ def train(config):
         t1 = time.time()
 
         # Add more code here ...
+        batch_inputs = batch_inputs.to(device)
+        batch_targets = batch_targets.to(device)
+
         optimizer.zero_grad()
-        nn_out = model(batch_inputs.to(device))
-        loss = criterion(nn_out, batch_targets.to(device))
+        nn_out = model(batch_inputs)
+        loss = criterion(nn_out, batch_targets)
         loss.backward()
 
         ########################################################################
