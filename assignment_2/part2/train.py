@@ -1,4 +1,4 @@
-
+################################################################################
 # MIT License
 #
 # Copyright (c) 2017 Tom Runia
@@ -75,6 +75,9 @@ def train(config):
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.RMSprop(model.parameters(), lr=config.learning_rate)
 
+    sentences = 'book used:' + config.txt_file
+    accuracies = 'book used:' + config.txt_file + '\n'
+
     for epoch in range(config.epochs):
         for step, (batch_inputs, batch_targets) in enumerate(data_loader):
 
@@ -118,6 +121,7 @@ def train(config):
                         config.train_steps, config.batch_size, \
                         examples_per_second, accuracy, loss
                 ))
+                accuracies += str(accuracy) + ", "
 
             if step % config.sample_every == 0:
                 # Generate some sentences by sampling from the model
@@ -126,6 +130,7 @@ def train(config):
                 char = char.to(device)
                 sentence = generate_sentence(model, dataset, config.seq_length,\
                                              char, device)
+                sentences += '\n' + str(step) + ' | ' + sentence
                 print(sentence)
 
             if step == config.train_steps:
@@ -134,6 +139,11 @@ def train(config):
                 break
 
     print('Done training.')
+
+    with open('sentences/' + config.txt_file[7:], 'w') as f:
+        f.write(sentences)
+    with open('accuracies/' + config.txt_file[7:], 'w') as f:
+        f.write(accuracies)
 
 
  ###############################################################################

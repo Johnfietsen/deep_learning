@@ -96,14 +96,14 @@ def train(config):
 
         if step % 10 == 0:
 
-            s = str("[{}] Train Step {:04d}/{:04d}, Batch Size = {},\
-                 Examples/Sec = {:.2f}, "
-                "Accuracy = {:.2f}, Loss = {:.3f}".format(
-                 datetime.now().strftime("%Y-%m-%d %H:%M"), step,
-                 config.train_steps, config.batch_size, examples_per_second,
-                 accuracy, loss))
+            print("[{}] Train Step {:04d}/{:04d}, Batch Size = {},\
+                   Examples/Sec = {:.2f}, "
+                  "Accuracy = {:.2f}, Loss = {:.3f}".format(
+                    datetime.now().strftime("%Y-%m-%d %H:%M"), step,
+                    config.train_steps, config.batch_size, examples_per_second,
+                    accuracy, loss
+            ))
 
-            print(s)
             results += str(accuracy.item()) + ", "
 
         if step == config.train_steps:
@@ -113,7 +113,8 @@ def train(config):
 
     print('Done training.')
 
-    with open('results/' +str(config.model_type) + str(config.input_length + 1)\
+    with open('results/' + str(config.model_type) \
+                         + str(config.input_length + 1) \
               + '.txt', 'w') as f:
         f.write(results)
 
