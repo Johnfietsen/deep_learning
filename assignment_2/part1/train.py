@@ -110,7 +110,8 @@ def train(config):
 
     print('Done training.')
 
-    with open('results/pal' + str(config.input_length + 1) + '.txt', 'w') as f:
+    with open('results/' +str(config.model_type) + str(config.input_length + 1)\
+              + '.txt', 'w') as f:
         f.write(results)
 
  ###############################################################################
