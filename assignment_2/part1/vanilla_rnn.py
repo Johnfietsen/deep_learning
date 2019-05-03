@@ -33,6 +33,7 @@ class VanillaRNN(nn.Module):
         self._seq_length = seq_length
         self._num_hidden = num_hidden
         self._batch_size = batch_size
+        self._device = device
 
         # recurrent part
         self._Whx = nn.Parameter(torch.zeros(input_dim, num_hidden))
@@ -48,14 +49,17 @@ class VanillaRNN(nn.Module):
         nn.init.kaiming_normal_(self._Whh)
         nn.init.kaiming_normal_(self._Wph)
 
+        self.to(device)
+
     def forward(self, x):
 
         # initialize hidden state
-        h = torch.zeros(self._batch_size, self._num_hidden)
+        h = torch.zeros(self._batch_size, self._num_hidden).to(self._device)
 
         # loop through sequence
         for t in range(self._seq_length):
             h = torch.tanh(x[:, t, None] @ self._Whx + h @ self._Whh + self._bh)
+            h = h.to(self._device)
 
         # calculate p
-        return h @ self._Wph + self._bp
+        return (h @ self._Wph + self._bp).to(self._device)

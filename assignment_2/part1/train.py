@@ -63,6 +63,8 @@ def train(config):
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.RMSprop(model.parameters(), lr=config.learning_rate)
 
+    results = 'palindrome length:' + str(config.input_length + 1)
+
     for step, (batch_inputs, batch_targets) in enumerate(data_loader):
 
         # Only for time measurement of step through network
@@ -70,8 +72,8 @@ def train(config):
 
         # Add more code here ...
         optimizer.zero_grad()
-        nn_out = model(batch_inputs)
-        loss = criterion(nn_out, batch_targets)
+        nn_out = model(batch_inputs.to(device))
+        loss = criterion(nn_out, batch_targets.to(device))
         loss.backward()
 
         ########################################################################
@@ -91,13 +93,15 @@ def train(config):
 
         if step % 10 == 0:
 
-            print("[{}] Train Step {:04d}/{:04d}, Batch Size = {},\
-                   Examples/Sec = {:.2f}, "
-                  "Accuracy = {:.2f}, Loss = {:.3f}".format(
-                    datetime.now().strftime("%Y-%m-%d %H:%M"), step,
-                    config.train_steps, config.batch_size, examples_per_second,
-                    accuracy, loss
-            ))
+            s = str("[{}] Train Step {:04d}/{:04d}, Batch Size = {},\
+                 Examples/Sec = {:.2f}, "
+                "Accuracy = {:.2f}, Loss = {:.3f}".format(
+                 datetime.now().strftime("%Y-%m-%d %H:%M"), step,
+                 config.train_steps, config.batch_size, examples_per_second,
+                 accuracy, loss))
+
+            print(s)
+            results += '\n' + s
 
         if step == config.train_steps:
             # If you receive a PyTorch data-loader error, check this bug report:
@@ -106,6 +110,8 @@ def train(config):
 
     print('Done training.')
 
+    with open('results/pal' + str(config.input_length + 1) + '.txt', 'w') as f:
+        f.write(results)
 
  ###############################################################################
  ###############################################################################
@@ -135,8 +141,13 @@ if __name__ == "__main__":
     parser.add_argument('--max_norm', type=float, default=10.0)
     parser.add_argument('--device', type=str, default="cuda:0",
                         help="Training device 'cpu' or 'cuda:0'")
+    parser.add_argument('--max_length', type=int, default=6,
+                        help="Maximal length of palindrome")
 
     config = parser.parse_args()
 
-    # Train the model
-    train(config)
+    for i in range(4, config.max_length):
+        config.input_length = i
+        train(config)
+    # # Train the model
+    # train(config)

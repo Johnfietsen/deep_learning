@@ -35,7 +35,7 @@ from model import TextGenerationModel
 
 ################################################################################
 
-def generate_sentence(model, dataset, length, first_char):
+def generate_sentence(model, dataset, length, first_char, device):
 
     sentence = []
 
@@ -43,7 +43,11 @@ def generate_sentence(model, dataset, length, first_char):
 
     for _ in range(length):
 
-        out, h, c = model.generate_character(out, h, c)
+        char = torch.zeros(1, 1, dataset.vocab_size)
+        char[0, 0, out.argmax().item()] = 1
+        char = char.to(device)
+
+        out, h, c = model.generate_character(char, h, c)
 
         sentence.append(out.argmax().item())
 
@@ -94,7 +98,8 @@ def train(config):
             loss = criterion(nn_out.view(-1, dataset.vocab_size), \
                              y_batch.view(-1))
             loss.backward()
-            nn.utils.clip_grad_norm_(model.parameters(), max_norm=config.max_norm)
+            nn.utils.clip_grad_norm_(model.parameters(), \
+                                     max_norm=config.max_norm)
             optimizer.step()
 
             accuracy = (torch.argmax(nn_out, dim=2) == y_batch).sum().item()\
@@ -110,16 +115,17 @@ def train(config):
                        Examples/Sec = {:.2f}, "
                       "Accuracy = {:.2f}, Loss = {:.3f}".format(
                         datetime.now().strftime("%Y-%m-%d %H:%M"), step,
-                        config.train_steps, config.batch_size, examples_per_second,
-                        accuracy, loss
+                        config.train_steps, config.batch_size, \
+                        examples_per_second, accuracy, loss
                 ))
 
             if step % config.sample_every == 0:
                 # Generate some sentences by sampling from the model
-                c = torch.zeros(1, 1, dataset.vocab_size)
-                c[0, 0, np.random.randint(0, dataset.vocab_size)] = 1
-                c = c.to(device)
-                sentence = generate_sentence(model, dataset, config.seq_length, c)
+                char = torch.zeros(1, 1, dataset.vocab_size)
+                char[0, 0, np.random.randint(0, dataset.vocab_size)] = 1
+                char = char.to(device)
+                sentence = generate_sentence(model, dataset, config.seq_length,\
+                                             char, device)
                 print(sentence)
 
             if step == config.train_steps:
