@@ -63,7 +63,7 @@ def train(config):
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.RMSprop(model.parameters(), lr=config.learning_rate)
 
-    results = 'palindrome length:' + str(config.input_length + 1)
+    results = 'palindrome length:' + str(config.input_length + 1) + '\n'
 
     for step, (batch_inputs, batch_targets) in enumerate(data_loader):
 
@@ -101,7 +101,7 @@ def train(config):
                  accuracy, loss))
 
             print(s)
-            results += '\n' + s
+            results += accuracy ", "
 
         if step == config.train_steps:
             # If you receive a PyTorch data-loader error, check this bug report:
