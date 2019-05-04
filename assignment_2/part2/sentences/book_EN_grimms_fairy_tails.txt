@@ -1,0 +1,759 @@
+book used:assets/book_EN_grimms_fairy_tails.txt
+ epoch: 0
+0 |                               
+100 |                               
+200 | the the the the the the the th
+300 | the was the was the was the wa
+400 |  the was the was the was the w
+500 | and she was a carre to the wit
+600 | and said the store the store t
+700 |  ‘What a will said: ‘I will sh
+800 | ed the firest was to the wood,
+900 | rest and said: ‘I will said to
+1000 | and said the fire, and said th
+ epoch: 1
+0 | and the stars and said: ‘I wil
+100 | was gone to the second the sec
+200 | d the wolf was to the wood to 
+300 | s a great day the fire to the 
+400 | was a beautiful bed, and the b
+500 |  the forest and the bear the f
+600 |  the world was a great castle 
+700 | the words and the stream the w
+800 | AND THE SEVEN BELE AND HIS AND
+900 | AND THE SALTANT
+
+There was onc
+1000 | THE STORY AND THE SALD
+
+There 
+ epoch: 2
+0 | ‘What are you are a fire, and 
+100 | en he had been to the stairs, 
+200 | d-Cap, and the soldier said, ‘
+300 | he first began to be a bottle 
+400 | TENT OF LIDENTIL
+
+There was on
+500 | and said, ‘I will give you the
+600 |       THE WHITE SNAKE
+
+A littl
+700 | od day, Hans. What do you will
+800 |  the fisherman, ‘I will not be
+900 | The second said the man, ‘that
+1000 | ‘I have been still alive her t
+ epoch: 3
+0 |  the wife said to him, ‘What a
+100 | ****
+
+
+
+
+THE FOX AND THE HORSE
+200 | niper-tree and said: ‘I will g
+300 | L
+
+The king said, ‘I will not 
+400 | The countryman saw the princes
+500 |  the fox said, ‘I will give yo
+600 |  In the morning the wolf was s
+700 | When the soldier was all the t
+800 | Grimm-king was the money with 
+900 |  So they said to himself, ‘I w
+1000 | s a great deal of gold and sai
+ epoch: 4
+0 | ‘What a little way of a little
+100 |  the wolf was all the land. Th
+200 | The cook was a little way of w
+300 | and the princess was so still 
+400 |  the work was a great way off,
+500 | owful to him, and said, ‘I wil
+600 |  day she was so standing by th
+700 | eer, and the soldier was all t
+800 |  said the fisherman, ‘I will n
+900 | the world were so hard and the
+1000 | g and said: ‘I have been carri
+ epoch: 5
+0 |   YOU God wife, and the second
+100 |  the world were the stars, and
+200 | d the bear came and said: ‘I h
+300 | R GRETEL
+
+There was once a man
+400 |  he was going to see the work 
+500 | THE SAUSAGE
+
+Once upon a time 
+600 | th the same to be as before, a
+700 | the world he set out on the gr
+800 |  the windows and the boy was s
+900 | and the soldier said to himsel
+1000 | the servant was dead. The fath
+ epoch: 6
+0 | CT EXCEPT THOSE
+PROVIDED
+     
+100 | the world should be able to fi
+200 | e wolf answered: ‘I have worke
+300 | e wolf answered: ‘I have nothi
+400 | een will not do it and began t
+500 | der were gone, and the soldier
+600 | e same to seek for the castle 
+700 | n the boy went to the tower, a
+800 | the fire and waited till the b
+900 |  the second son said to his ho
+1000 | and said: ‘I have been a fine 
+ epoch: 7
+0 | 188.  Dummling and the water i
+100 |  said the second day she said 
+200 |  it looks as he had been and s
+300 | the water to the seashore was 
+400 | the window, and the boy went t
+500 | of the princess, and the soldi
+600 |  daughter to the top of the wo
+700 | *
+
+
+The shoemaker was to be a 
+800 |  ‘I will give you a runerautif
+900 | THE SAUSAGE
+     MOTHER HOLLE
+
+1000 | and the soldier said: ‘I have 
+ epoch: 8
+0 | the man told him all the windo
+100 | and the second son said: ‘I wi
+200 |  But the dwarf said, ‘I was to
+300 | g and had no longer and long a
+400 | you must let her beauty, and t
+500 |  ‘I do not know what to say: a
+600 | st going to be seen, and was s
+700 | ttle Red-Cap carried the stran
+800 |  the first take the bird and t
+900 | u must be a very day something
+1000 | (c)(3) letter you sleeping, I 
+ epoch: 9
+0 |  my little wish on the spindle
+100 |  daughter was always came down
+200 | Red-Cap was to be so that was 
+300 |  san’s house, and the son was 
+400 | the bear to go home and see wh
+500 | and have a chairs, and the sec
+600 | he wolf was going to do it aga
+700 | Then the second son was as the
+800 | therine stood like the sun and
+900 | 591/
+
+Produced up and down aga
+1000 | ***
+
+
+The servant would not do
+ epoch: 10
+0 | E.2.  If an individual doss ar
+100 | (c)(3) and repented herself al
+200 |  the wolf was gone, she was so
+300 | e wolf said: ‘If you will neve
+400 |  should like to see the work i
+500 | t the wife was in such a shorm
+600 |  the sea, and all was done bef
+700 |  should like to see the words 
+800 | The second prince stood by the
+900 | the work was a great treasure 
+1000 |  the door she came to the cast
+ epoch: 11
+0 | glaf.orgicly, and the starsh a
+100 | l, what a beautiful bird am I!
+200 | F.6.  INDEMNITY - You agree to
+300 |  was so tired that the first w
+400 | OR GOOAGREARE
+     THE BROTHER
+500 | the forest, and had not been t
+600 | and said, ‘I will give you a p
+700 | oject Gutenberg-tm electronic 
+800 | u must know it all out, the fa
+900 |  to the king to the water, and
+1000 | 12.  Dummling would not see hi
+ epoch: 12
+0 | d the straw was all the money.
+100 |  was at once of the parlour; a
+200 | will give you a raspigal palac
+300 |  the princesses were seen by t
+400 | the mouse and said: ‘I will gi
+500 |  the princess was very angry, 
+600 | odbye, Hans.’ Hans comes to Gr
+700 | the spring to be mayor, and I 
+800 | therine would be a noble to re
+900 |  the soldier said, ‘I will giv
+1000 | the sea, and all was a little 
+ epoch: 13
+0 | The king was set a large stran
+100 | of the princesses were sitting
+200 | the work of the table, and the
+300 | uld not be able to go into the
+400 |  a fine thing for the poor fin
+500 | OR AND JORINDEL
+
+There was onc
+600 |  the world were should find hi
+700 | the world were should find him
+800 | e cook said, ‘I will not do it
+900 | said the soldier, ‘but so angr
+1000 |  TO VI IN
+
+ANTTLE 
+     SecDet
+ epoch: 14
+0 | *
+
+The seven was gone, and sai
+100 | the money was to be seen, and 
+200 | nsel, ‘the wolf was to be so t
+300 | he same way and as the princes
+400 | een was a great deal of a refu
+500 | ttle Red-Cap, however, was on 
+600 | en the soldier was only the wo
+700 | BROTEXRE LIOM OF GRISD
+
+T KERP
+800 | 12.  Dummling made the cook to
+900 | will soon set you to a skin an
+1000 |  mother killed her little son;
+ epoch: 15
+0 | st touched her head off, the k
+100 | BROTENTING MUSE.
+
+1.F.5.  So t
+200 | ite storat, and the soldier wa
+300 |  will never be able to me!
+  M
+400 | partner, and said, ‘I will giv
+500 |  and when he had walked for a 
+600 | t the work was a great treasur
+700 | and the mother said, ‘I will g
+800 | d the spindle was the other si
+900 | or learnt what the soldier was
+1000 | fely the window and said: ‘I h
+ epoch: 16
+0 |  ‘I bring nothing, but the car
+100 | said the witch, ‘what a beauti
+200 | 1859), were darely at the wind
+300 |  to see the work was a roses w
+400 |  am a poor child what the pin 
+500 | s to be a silk handkerchief ou
+600 | e wood to look for the stones 
+700 | glaf.org.  Email contrive to h
+800 |  am very beautiful to be seen 
+900 | ‘I will go to the well, and th
+1000 | Though over her to do so, then
+ epoch: 17
+0 | Marr-teed the windows were of 
+100 | ite did not know what to do. A
+200 | d the miller’s daughter to wif
+300 | ]
+Relabb were gone, and said, 
+400 | g the beast as they could not 
+500 | therine stood by the man left 
+600 | and the second son said, ‘I wi
+700 | and the soldier had to sing th
+800 | e countryman he grows big, and
+900 | **
+This and could not come bac
+1000 | LAGIDEL
+     THE SALAD
+
+There 
+ epoch: 18
+0 | 808 [.. The man said to the ma
+100 | he world were should be chait,
+200 | ***
+This father was gone, she 
+300 | and the mother said: ‘If you w
+400 | u must give me something to ea
+500 |  time.’
+
+‘Whither away, Hans?’
+600 | nsel said, ‘I have nothing to 
+700 | doust as they could not see hi
+800 |  am to eat out of the water. A
+900 | **
+This deed man could not see
+1000 | ,000) ass, Gretel, instead of 
+ epoch: 19
+0 | Then he was about to the barga
+100 | and the girl saw the court was
+200 | the tree and said: ‘What does 
+300 |  the wolf said: ‘If you will n
+400 | therine stood looking on advic
+500 | ttle Red-Cap, however, was ver
+600 | ngrily to her again, and when 
+700 | t the king said, ‘I will give 
+800 | he Project Gutenberg Literary 
+900 | TACT OY THE FISHERMAN AND HIS 
+1000 | the day came to the castle whi
+ epoch: 20
+0 | L
+
+There were only one half of
+100 |  day she was to be seen, and s
+200 | 91-0.zip was always come back 
+300 |   WI DOME ROD AND CATHERINE
+  
+400 | ned the shoes of the window an
+500 | he Project Gutenberg Literary 
+600 | ng the king said, ‘I will not 
+700 | the spring them to his heart h
+800 | 
+The bird flew down dear child
+900 | ‘I will go into the wood to fi
+1000 |  the tree and silver in the wo
+ epoch: 21
+0 | u must take a dreadful face. ‘
+100 | st the same thing happened tha
+200 | w he has brought her with him,
+300 | d the sparrow said to the sea,
+400 | t the princess was so proud an
+500 | he work was a little glass, an
+600 | the fox had said it was a rose
+700 | the same time if the second so
+800 | partner, and the king said, ‘I
+900 | ttle Red-Cap, how he had said 
+1000 | 
+The youngest of the enchantre
+ epoch: 22
+0 |  Once friend his hand and laid
+100 | ns.’ Hans comes to Gretel. ‘Go
+200 |   Don’t come with me, I will g
+300 | N LIFR, ICINCHANT AND ROSE-RED
+400 | L
+
+There were saved all the li
+500 | Then he was so much good to se
+600 | E.1 through 1.E.7 or obtain at
+700 | e world, where the king said, 
+800 | the forest and cut off the bed
+900 | 591/
+
+Produced by the tower, a
+1000 | will give you a murderers’ dau
+ epoch: 23
+0 | g that he had been sitting on 
+100 | ow, can do with you.’ The face
+200 | 591]
+Release Date: April, 2001
+300 | e same spot in the wood, and s
+400 | ite loudly, and said: ‘I have 
+500 |  a stone and cried: ‘We will n
+600 | 591/
+
+Produced behind the door
+700 | rinda than took a poor shoes w
+800 | 
+The bird flew away from him o
+900 |  him a book to get off his hea
+1000 | etel go together to the stairs
+ epoch: 24
+0 | OF GRIAD OF NO FOL MUSCEARCK
+ 
+100 | the same time he came to the s
+200 | nsel, and the soldier was all 
+300 |  to the castle which he was so
+400 | the bacon on the shepherd pass
+500 | or come
+and see where it grew 
+600 | een had seen the roof of the w
+700 | s always coming when she is a 
+800 | d the sun and said, ‘I will gi
+900 | l-tree, and the soldier was al
+1000 | or corned to be sat down on th
+ epoch: 25
+0 | d the wolf was lying in the wo
+100 |  C PROJECT GUTENBERG EBOOK GRI
+200 | and the second son saw the doo
+300 | her face of the castle, and se
+400 |  the peas be seen in the world
+500 |  to the king’s palace, and ask
+600 |  to the path. All this the ser
+700 | E.9.
+
+1.E.8.  You may charge a
+800 |   Healle again asked what he h
+900 | d the spindle wounded her, and
+1000 | will give you a murderers’ fas
+ epoch: 26
+0 | w the second tablet said: ‘Wha
+100 |  said, ‘I am a poor soldiers, 
+200 | 2.  Everything was there was a
+300 | F.1.  Project Gutenberg-tm Lic
+400 | nsel said: ‘Now you must have 
+500 | ***
+
+
+The Brothers Grimm
+Tap-d
+600 | nsel said to him: ‘You will no
+700 | the world were standing by the
+800 | of the good night, till at las
+900 |   YOU AGREE THAT THE FOUNDATIO
+1000 | g a word, and said, ‘I will gi
+ epoch: 27
+0 | R ELSHANBTORES OF CHITTELVE TH
+100 | the world were standing in the
+200 | the day between them the stars
+300 | r the wolf said: ‘If you are s
+400 | **
+This on the ground, and sai
+500 | THE SAUSAGE
+
+Once upon a time 
+600 | eard!’
+
+Then the prince took h
+700 | ng Grisly-beard so that they w
+800 | d the sun and said, ‘I will gi
+900 | The soldier consented, and the
+1000 |  the door of the castle which 
+ epoch: 28
+0 | d as if they were still more t
+100 | *
+
+
+The wolf answered:
+
+ ‘Thou
+200 | ] WHORT FRLICENCE *** 
+Time
+fo
+300 | e day the cook said, ‘I will g
+400 | The youth remained still alive
+500 | might play as if she were all 
+600 | e day he saw the princess was 
+700 | d the seven dwarfs their dwell
+800 | **
+This offered to grow ripe i
+900 |  ‘I will soon seize you.’ Then
+1000 | and the peasants had been the 
+ epoch: 29
+0 | een had been at her beautiful 
+100 |  the second son said, ‘I know 
+200 | en the fox felt the little man
+300 |  will give you a mountain. The
+400 | once upon a time a king who ha
+500 | ,000) are put on her mouth of 
+600 | (c)(3) letter is nowhere neath
+700 | he Project Gutenberg Literary 
+800 | undation (“the Foundation (and
+900 |   Heanted the first land. The 
+1000 |  day and the soldier was again
+ epoch: 30
+0 | st leave his master said: ‘I w
+100 | st the stars--up in the mornin
+200 | of the ground, and said: ‘If y
+300 | will give you a great piece of
+400 | e peasant said, ‘I will give y
+500 |  Meanth! the work was a great 
+600 | 591]
+Release Date: April, 2001
+700 |  the two children and Project 
+800 | y at his face, but he did not 
+900 | glaf.org.  Email contact links
+1000 | 1887, email built the spindle 
+ epoch: 31
+0 |  will soon be my turn,’ said t
+100 | ng Grisly-beard, as she ran fr
+200 | THE SAUSAGE
+     MOTHER HOLLE
+
+300 | g and went to bed, the first d
+400 | ITTLE RED RIDING HOOD]
+     TH
+500 | d as if they were sitting toge
+600 |  Arn fond actone where the bea
+700 | less in the world, and had not
+800 |  said the old woman, ‘what a p
+900 | the sun and said: ‘I will go i
+1000 | e cock, and said, ‘I will go o
+ epoch: 32
+0 |  the world were standing in th
+100 | d into the wood to look on the
+200 | u shall have my father in the 
+300 | AND THE HORSE
+
+A farmer had a 
+400 |  the wolf sprang out of the ca
+500 | the mouse out of it. ‘Good eve
+600 |  day she went on till they cou
+700 |  father grieved when I was gon
+800 | d the sun shone by the side of
+900 | glaf.org.  Email came to the t
+1000 | 1887, email cut up to the door
+ epoch: 33
+0 | , you shall have my daughter f
+100 | 01, apply all the leaves were 
+200 | 
+Once upon a time a poor man l
+300 | etel, who was the matter, but 
+400 | w the forester had a good dear
+500 |  to the king’s daughter asked 
+600 | R EANTTAL
+
+Wall you take her b
+700 |   Heall give me the stairs. Th
+800 | rinda than I had something to 
+900 | en the fox felt to the king th
+1000 |       CLEVER HANS
+     THE STO
+ epoch: 34
+0 | the work. Beg and pray as I li
+100 |   Do I too watch the first the
+200 | 1887, email
+luckily. Then he w
+300 | one day as the sparrow flew aw
+400 | will give you a prince, whithe
+500 | st as the dwarf said, ‘I will 
+600 | Then he went on again at the w
+700 | ns.’ He drew it away over the 
+800 | L
+
+There was once upon a time 
+900 | r the way the dog run away, an
+1000 | The soldier could not see him 
+ epoch: 35
+0 | oject Gutenberg-tm works in a 
+100 | *
+
+
+The Brothers Grimm
+
+Tried 
+200 | oject Gutenberg-tm electronic 
+300 | the water, and the son was ver
+400 |  the beautiful mouse’
+‘Who is 
+500 | L
+
+There was once a man who wa
+600 | of the great treasure was call
+700 |  day and try him a little piec
+800 | E.9.
+
+1.E.8.  You man might no
+900 | L
+
+There was once upon a time 
+1000 | e day the cook took her to the
+ epoch: 36
+0 |  the work was dead, but looked
+100 | een are the world were standin
+200 | The second night she was alone
+300 | me to a beautiful princess, an
+400 | the work of the work was assig
+500 | the matter now no one was to b
+600 | THE SAUSAGE
+
+Once upon a time 
+700 | of the ground, and asked him w
+800 | of the ground, that I must not
+900 | AND THE HORSE
+
+A farmer had a 
+1000 | en the soldier was a great won
+ epoch: 37
+0 |  a large company of merry my f
+100 | e window-bad looked all the to
+200 | AND THE HORSE
+
+A farmer had a 
+300 | r her tree and got into the wa
+400 | the work of the work was assig
+500 | he Project Gutenberg Literary 
+600 | ere the seven kind of the rive
+700 | r a while he went to the king’
+800 | d said: ‘I will give you his o
+900 |  him a bird, there was a great
+1000 | and the prince who seeks their
+ epoch: 38
+0 | 591]
+Release Date: April, 2001
+100 | 4. Awable castle in a barrel, 
+200 | nsel said: ‘I will give you a 
+300 | l, however, he went to the bed
+400 | ‘I should be very sorrowfully,
+500 |  said: ‘If you will be a great
+600 | or her sister trying a scissor
+700 |  they saw a black more happily
+800 |  Breverope of blood. Then the 
+900 | st as if she were all carried 
+1000 |  to the courtyard, and said, ‘
+ epoch: 39
+0 | the work of the salad and bega
+100 | 
+Once upon a time a king who w
+200 | SAUSAB
+
+A fair full of holes, 
+300 | he bride. At twelve hundred fo
+400 |  him a bit of looking about th
+500 | or come
+and see what was the m
+600 | th his wife standing on the st
+700 | r a wonder. Then he said, ‘I h
+800 | AND THE SPARBBER BERG-HANQoor 
+900 |  so long that he would not hav
+1000 | STORY OF THE GOLDEN MOUNTAIN
+ 
+ epoch: 40
+0 |  the sexton crowed herself alo
+100 | d the spindle wounded her when
+200 |   Donot greame the door, and h
+300 | AND THE SAUSAGE
+     MOTHER HO
+400 | oject Gutenberg-tm electronic 
+500 | 1859), were born,
+this was lik
+600 | the wolf said to herself: ‘Wha
+700 |  the stream, and the side of t
+800 | 08 [EBook #2591]
+Release Date:
+900 | d-Cap set to trees and sparkle
+1000 |  he went to the king’s daughte
+ epoch: 41
+0 | you are so much that song agai
+100 | ) 596-1887, email
+business@pgl
+200 | nsel stood still and stayed at
+300 | een are the world. And she ran
+400 | L
+
+There were once soon became
+500 | /5/9/2591/
+
+Produced by the wa
+600 | /
+
+Drembled him on the head of
+700 | roject Gutenberg” is a registe
+800 |  a thing to have her own daugh
+900 | TABUTE OR WHOW-WRITE TO OVe an
+1000 | x do it in the morning to the 
+ epoch: 42
+0 | and when the king had to readi
+100 | The second brother two other c
+200 | d-Cap set to the faster, and s
+300 | the old woman was so big that 
+400 | r angry, and the soldier was a
+500 | the fire that the fish cannot 
+600 | nger to see the stone to eat. 
+700 | The countryman said, ‘I have l
+800 | ree, and the second son said, 
+900 | 1-0.zill the little tailor was
+1000 | s to say how to her and said: 
+ epoch: 43
+0 | the work on a great tree, and 
+100 | w the first the two eldest sti
+200 | The second night she came to t
+300 |   YOU AGREE THAT THE FOUNDATIO
+400 | L
+
+There were set began to cry
+500 |  the mountains, and said, ‘I w
+600 | should be king after his lived
+700 | SAUSAGE
+
+The man in the evenin
+800 | 08 [EBook #2591]
+Release Date:
+900 |  the princess was sleeping, an
+1000 | the door who was the matter wi
+ epoch: 44
+0 | are to the house the window at
+100 | *
+
+THE FULL PROJECT GUTENBERG 
+200 | r a wondle Pressoot do it.’ Th
+300 |   You must require that was th
+400 | t-skin asked: ‘What are you af
+500 | x and a golden bride. The man 
+600 | en the soldier took him to a s
+700 | AND THE SALAKEE
+
+1.F.5.  Some,
+800 | said the mother, ‘if we will t
+900 | 
+Once upon a time a copy, a me
+1000 | derneath the juniper-tree
+  Ky
+ epoch: 45
+0 | asant the soldier was a great 
+100 | NS OF MERECHANTIITS FIR PELATH
+200 |  to the stairs, and said: ‘I h
+300 | ‘Seven the door it is that the
+400 |   YOU Am Lether UTYY, and led 
+500 | e willow-wren with her father 
+600 | or her side of the room to the
+700 |  are all the land. So he said,
+800 | Misserve on the second tomorro
+900 | st the same side, and the sold
+1000 | en the fox stretched out a lit
+ epoch: 46
+0 | w the piece of bread with the 
+100 | THE SAUSAGE
+     MOTHER HOLLE
+
+200 | r he pussengel and his stomach
+300 |  to $5,000) are particularly i
+400 | oject Gutenberg-tm electronic 
+500 | glaf.org.  Email contact links
+600 |  the little tailor was well as
+700 | tappily that she did not stop 
+800 | 08 [EBook #2591]
+Release Date:
+900 | ite willing to do all the good
+1000 |       CLEVER HANS
+
+The mother 
+ epoch: 47
+0 | e world to see the door of the
+100 | The second back and the spindl
+200 | R BROTHERS
+     LILY AND THE L
+300 | the work was quite silly, for 
+400 | d the sparrow said to him, ‘Wh
+500 |   YOU AGREE THAT YOU GRISLY OF
+600 | en the king said, ‘I will give
+700 | ng Grisly-beard, had been so s
+800 | the same man, the fifth into t
+900 | d the second son said, ‘I have
+1000 |  a fine thing!’ cried the mill
+ epoch: 48
+0 | een are the wolf’s bells! dead
+100 |  to the great city. There the 
+200 | d the castle and came and said
+300 | Then the sparrow answered:
+
+ ‘
+400 | een are the work was a great f
+500 | me to a beautiful princess, yo
+600 |  the sexton came running to he
+700 | tappily that I had also not a 
+800 | d when he had finished his hea
+900 | d-Cap set to the water, and th
+1000 | d the cook to be a sin and the
+ epoch: 49
+0 | s so wite carried them out of 
+100 | *
+
+
+The Brothers Grimm
+
+*** EN
+200 | ng Grisly-beard, where the sev
+300 |  the fire and warmed him what 
+400 | NT NO il the window and said: 
+500 | the fire that the fish came se
+600 | w when the king said, ‘I will 
+700 | d the star-gazer went straight
+800 | the tree were sitting on the s
+900 |  to the well, and said, ‘I wil
+1000 | he Project Gutenberg Literary 
