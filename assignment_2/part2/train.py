@@ -79,6 +79,8 @@ def train(config):
     accuracies = 'book used:' + config.txt_file + '\n'
 
     for epoch in range(config.epochs):
+
+        sentences += '\n epoch: ' + str(epoch)
         for step, (batch_inputs, batch_targets) in enumerate(data_loader):
 
             # Only for time measurement of step through network
