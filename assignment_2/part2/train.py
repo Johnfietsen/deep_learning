@@ -35,7 +35,7 @@ from model import TextGenerationModel
 
 ################################################################################
 
-def generate_sentence(model, dataset, length, first_char, device):
+def generate_sentence(model, dataset, length, first_char, device, temp):
 
     sentence = []
 
@@ -49,7 +49,11 @@ def generate_sentence(model, dataset, length, first_char, device):
 
         out, h, c = model.generate_character(char, h, c)
 
-        sentence.append(out.argmax().item())
+        if temp == None:
+            sentence.append(out.argmax().item())
+        else:
+            d = torch.softmax(out.squeeze() / temp, dim=0)
+            sentence.append(torch.multinomial(d, 1).item())
 
     return dataset.convert_to_string(sentence)
 
@@ -131,7 +135,7 @@ def train(config):
                 char[0, 0, np.random.randint(0, dataset.vocab_size)] = 1
                 char = char.to(device)
                 sentence = generate_sentence(model, dataset, config.seq_length,\
-                                             char, device)
+                                             char, device, config.temp)
                 sentences += '\n' + str(step) + ' | ' + sentence
                 print(sentence)
 
@@ -199,6 +203,8 @@ if __name__ == "__main__":
                         help='How often to print training progress')
     parser.add_argument('--sample_every', type=int, default=100, \
                         help='How often to sample from the model')
+    parser.add_argument('--temp', type=int, default=None, \
+                        help='Temperature of text generator')
 
     config = parser.parse_args()
 
