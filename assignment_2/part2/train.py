@@ -146,9 +146,9 @@ def train(config):
 
     print('Done training.')
 
-    with open('sentences/' + config.txt_file[7:], 'w') as f:
+    with open('sentences/' + config.txt_file[7:] + 'temp' + config.temp, 'w') as f:
         f.write(sentences)
-    with open('accuracies/' + config.txt_file[7:], 'w') as f:
+    with open('accuracies/' + config.txt_file[7:] + 'temp' + config.temp, 'w') as f:
         f.write(accuracies)
 
 
