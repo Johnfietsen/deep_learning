@@ -146,9 +146,9 @@ def train(config):
 
     print('Done training.')
 
-    with open('sentences/' + config.txt_file[7:] + 'temp' + config.temp, 'w') as f:
+    with open('sentences/' + config.txt_file[7:] + 'temp' + str(config.temp), 'w') as f:
         f.write(sentences)
-    with open('accuracies/' + config.txt_file[7:] + 'temp' + config.temp, 'w') as f:
+    with open('accuracies/' + config.txt_file[7:] + 'temp' + str(config.temp), 'w') as f:
         f.write(accuracies)
 
 
@@ -203,7 +203,7 @@ if __name__ == "__main__":
                         help='How often to print training progress')
     parser.add_argument('--sample_every', type=int, default=100, \
                         help='How often to sample from the model')
-    parser.add_argument('--temp', type=int, default=None, \
+    parser.add_argument('--temp', type=float, default=None, \
                         help='Temperature of text generator')
 
     config = parser.parse_args()
