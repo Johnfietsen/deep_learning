@@ -1,0 +1,704 @@
+book used:assets/book_NL_darwin_reis_om_de_wereld.txt
+ epoch: 0
+0 | eeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+100 | eeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+200 | den den den den den den den de
+300 | de de de de de de de de de de 
+400 |  de beweer van de beweer van d
+500 | sten van de bestaanden van de 
+600 | illen de bewonen van de versch
+700 |  de bergen van de bergen van d
+800 |  de bestaan van de bergen van 
+900 | ardig van de bewoners van de b
+1000 | de bewoners van den bestaan va
+1100 | haan een gevolgen van den groo
+1200 | t de bewoners van de bewoners 
+1300 | De strand van den grond van de
+ epoch: 1
+0 | een der voorkomen de bewoners 
+100 |  voet het eene gedeelten van d
+200 |  te zien van de bewoners van d
+300 | de bergen van de bergen van de
+400 | t de bewoners van den geleerde
+500 |  de gewoonte van de meeste ver
+600 | 1834. Zij zij de groote versch
+700 | r de bergen van de verschillen
+800 | itona in de bewoners van den b
+900 | ille Oceaan op de bewoners van
+1000 | oject Gutenberg-tm electronic 
+1100 |  de kust van den voet van de v
+1200 | oote stroomende stroomen van d
+1300 |  vallei van den grond van den 
+ epoch: 2
+0 | ili van de oppervlakte van de 
+100 |  vertelde mij de gewoonte van 
+200 | n de onderstelling van de vers
+300 | lchudos te ontstaan, dat de ge
+400 | van den grond van den voet van
+500 | j het geval is de gewone vlakt
+600 | ili of de onderstelling van de
+700 | ebben van de bergen van den gr
+800 | dat de geheele landschap een g
+900 | er verschillende streken van d
+1000 | n zijn geweest zijn. De versch
+1100 | 331] De verschillende streken 
+1200 | *
+
+                           
+1300 |  De stad was de verschillende 
+ epoch: 3
+0 |  de kust van den dag van den d
+100 |  van de bewoners van de bewone
+200 | 1830
+en 1830 eene vogels op de
+300 | de booten en de verschillende 
+400 | en Chileensche kust van een ge
+500 | zijn gewoon van den dag van de
+600 | ngand van de onderstelling van
+700 | lk in de hoogte van de vlakte 
+800 | 0 vierkante kilom. of eene hoo
+900 | 1830
+en 1830 was de bergen van
+1000 | 0] De stad was de verschillend
+1100 | j bestaan uit de bewoners van 
+1200 | aan de oppervlakte van het lan
+1300 |  de oorzaak van de oogen van d
+ epoch: 4
+0 | t de struiken zij voor de berg
+100 | 0] De eerste beweging van de b
+200 | e onderstelling van de onderzo
+300 | mer op de kust van de onderaar
+400 | gus tot 450 mijlen van de oorz
+500 | ar de bewoners van den dag van
+600 | de hoofdstad van een der zee v
+700 | In de verschillende soorten va
+800 | en dit deel van den Stillen Oc
+900 | glanica, die in de boomen en d
+1000 | 0] De stad werd een der korale
+1100 |  gevormd wordt, dat de geheele
+1200 | n zijn geweest zijn. De bewone
+1300 | 1833. Het land is het onder de
+ epoch: 5
+0 | jn de boomen en de voornaamste
+100 | r de bewoners van de bewoners 
+200 | rschillende stroomen zij de ge
+300 | ollen aan de oppervlakte van h
+400 | hipel is de gewone kanaal van 
+500 | gl genoemd wordt. De bewoners 
+600 | In de nabijheid van de onderst
+700 | t de meeste gedeelten van de m
+800 | )
+
+[249] De eerste berg is ont
+900 | t man te vergezellen, dat de g
+1000 | dat de geheele land verschille
+1100 | t geheele land van den grond w
+1200 | r de verschillende stad was ge
+1300 | ld. Ik kon naar een kleine kra
+ epoch: 6
+0 |  voet hoog in de laatste voor 
+100 | ter de bewoners van de bewoner
+200 | in de hooge bergen van de onde
+300 | ardiger dan de geheele beschri
+400 | leine vlakten van Patagonië is
+500 | n de verschillende stammen van
+600 | is de geheele bergen van de ku
+700 | en van de meeste gedeelten van
+800 | n van den dag van den dag van 
+900 |  de boomen en de verschillende
+1000 | 0 voet hoogte van 10 jaren op 
+1100 | n van de verschillende eilande
+1200 |  de vlakte van den grond in de
+1300 | unsting of andere dieren op de
+ epoch: 7
+0 |  voornaamste bergen van de ond
+100 |  beslist van de bewoners van d
+200 |  tot 100 voet hoogte van de vl
+300 | agle kon later bedraagt het wa
+400 | ternië in de lagere gedeelten 
+500 |  De eerste gezicht van den dag
+600 |  van de groote verwante van de
+700 | een klein bestaat uit de vlakt
+800 | glaf.org de boomen waren gewor
+900 | rk en Australië. Wij vonden wi
+1000 | de bewoners van de verschillen
+1100 | en ik den volgenden dag van de
+1200 | t de laatste voorwerpen op de 
+1300 | n van den grond op de kust van
+ epoch: 8
+0 | ceestboorden te zijn. De stroo
+100 | ogische gesteldheid van de ver
+200 | t geval is de geheele oppervla
+300 | rt.)
+
+[392] De eerste terug. D
+400 | *** The breedsen op de kust va
+500 |  voet hooge bergen van de vers
+600 | o de eene der bewoners van een
+700 |  De eerste verschillende soort
+800 | de bergen van den aanvallen va
+900 | gesteld door de bewoners van d
+1000 | De stad is zeer geneigd te zij
+1100 | t geval is de gewoonte van den
+1200 | stig waren geworpen, en daarna
+1300 | rschillende soorten van den gr
+ epoch: 9
+0 |  Een andere vogels op de boote
+100 | Onmerkbaar worden. De bewoners
+200 | is de geheele oppervlakte van 
+300 | .-Jago van de onderaardsche be
+400 |  de gewoonten van den grond on
+500 | le voor het geheele verwoestin
+600 | arts in een staat van de onder
+700 | n van de voortbrengselen van d
+800 |  de kust van Patagonië in een 
+900 | and distributed th the copy of
+1000 |  Project Gutenberg-tm electron
+1100 | anischen Oceaan, waar de gehee
+1200 | De stad is zeer weinig van de 
+1300 | geheel verschillende soorten v
+ epoch: 10
+0 | to copy of any with the work a
+100 |  Petise vertelde mij, dat de g
+200 | ANTEN  AARH Shuldad eene ontde
+300 | is de geheele beschrijving van
+400 | 0 voet hoogte van het land is 
+500 | r de verschillende streken van
+600 | inca genoemd. De stad is zeer 
+700 | 1630 in the providie de result
+800 |  Ik heb zijn geworden, dat de 
+900 | glus), en de geheele beschaafd
+1000 | r de verschillende streken van
+1100 |  van de verschillende eilanden
+1200 | voor de bewoners van de Cordil
+1300 |  Een anderen dag volgden de vo
+ epoch: 11
+0 | jn geweest zijn de voornaamste
+100 | n te verwanten, die in de vers
+200 | e voornaamste beweging van de 
+300 | o groot aantal op de kust van 
+400 |  van den grond ontdekte ik mij
+500 | j komt het geheele land begon 
+600 | t de hoofdstad van den grond o
+700 | r= wellading van het land van 
+800 |  de kust van Chiloë en de schi
+900 | t geval is. Het is een sterke 
+1000 | 1000 voet hoogte van 1000 voet
+1100 | ological Transactions in de An
+1200 | staan een groote verschillende
+1300 | r den voet der strook aan de o
+ epoch: 12
+0 | che verschillende soorten van 
+100 | t hij ontdekt en ontstaan. In 
+200 | agle eene onbeschrijving van d
+300 |  Het geheel met de geheele opp
+400 | ar het geval is. Het geluid de
+500 | ert.)
+
+[330] Deze groote verwa
+600 | Onmerhoon dan de geheele opper
+700 |  Petise the Project Gutenberg-
+800 | De stad ligt op de bergen van 
+900 | dat de beste gedeelte van den 
+1000 | De verschillende streken van d
+1100 |  van de verschillende kleuren 
+1200 | voor de bewoners van de Cordil
+1300 | 0 mijlen van de verschillende 
+ epoch: 13
+0 |  de voornaamste beweging van d
+100 | de verschillende stammen van d
+200 | n konden de onderstelling van 
+300 | van de geheele oppervlakte van
+400 |  voet hoogte. De hoofdstad van
+500 | n van de verschillende streken
+600 | o Negro, en dat de bewoners va
+700 | 3 Maart.]
+
+De Beagle zeilde ee
+800 | n zegt, dat de bergen verschil
+900 | een der waterplaatst zijn. De 
+1000 | AVORKANDOO YOU DIS ENHEN
+SANTE
+1100 |  bewoners van de Cordilleras w
+1200 |  Het geslacht moet zijn gewees
+1300 | 1 Maart and Distribution of Pr
+ epoch: 14
+0 | geheel verschillend geslacht w
+100 |  algemeen zijn verscheidene be
+200 | en de gewone plek van den gron
+300 | rk Minster in de nabijheid van
+400 | eraps-Eilanden in de korte aan
+500 | e in den Stillen Oceaan hebben
+600 | een kleine verbazing en daar e
+700 | kleten wij de geheele oppervla
+800 | inca gezeten. De bergen versch
+900 | en de dieren van de verschille
+1000 | t de verschillende streken van
+1100 |  de lagune begon het geslacht 
+1200 | Z.B.                          
+1300 | t de strook onderhoudende soor
+ epoch: 15
+0 |  de stad is zeer weinig van de
+100 | EN DE ROOOVR
+OSCoptien (Cancen
+200 | 33 waren een gevolg van de ond
+300 | e bezit land zag ik een berg i
+400 |  op het eiland Charles Lyell (
+500 | t verdient de grond liggen in 
+600 |  mijlen van de bewoners van ee
+700 | hank komt het geval is, dat de
+800 | dat de bergen van den anderen 
+900 | rpys of Geology, Deel II, blz.
+1000 | e verschillende soorten van de
+1100 | t meer op de kust van Patagoni
+1200 | ten weg naar de bewoners van d
+1300 | Zij bestaan uit te voren het s
+ epoch: 16
+0 | dat de groote verwondering van
+100 | ological Transactions in de na
+200 | n de verschillende soorten van
+300 | n van de verschillende soorten
+400 | rk Minster zijn geweest zijn. 
+500 |  van de bewoners van den dag v
+600 | De stad ligt op de bergen van 
+700 | r de stad is zeer weinig van d
+800 |  de onderstelling van de versc
+900 | voet hooge en gevaar liggen, d
+1000 | en van de verschillende streke
+1100 | een groot aantal voor de berge
+1200 | t de stad is zeer weinig van d
+1300 | October 1836.]
+
+Des morgens ve
+ epoch: 17
+0 |  algemeen zijn de bewoners van
+100 | gstoredia behoorende. Het was 
+200 |  op het eiland Chatham (ongeve
+300 | e de volgende dagen later zijn
+400 |  te maken, dat de geheele oppe
+500 | de groote verwondering van den
+600 | en van een der voorwerpen, die
+700 | de voortbrengselen van de voor
+800 | t verdiepten in de kust van Pa
+900 | t meer op de kust van Patagoni
+1000 | ar de verschillende soorten va
+1100 | t de kust van Patagonië in het
+1200 | n van de Cordilleras waren gew
+1300 | 0 voet boven de zee te zien va
+ epoch: 18
+0 | ert.)
+
+[355] Eenige water ware
+100 | van de bewoners van de verschi
+200 | ord-Amerika bestaan uit een gr
+300 | geheel onder de bergen van de 
+400 | 3 Maart.]
+
+De Beagle zeilde ee
+500 | 1 Juli in de hoofdstad van Pat
+600 | artaire Tijdvak, dat de groots
+700 | n zegt, dat de bewoners van de
+800 | reiken. Een gevolg is van de v
+900 | EN DE VRIIZO
+ NIER IIS LITE NO
+1000 | *
+This South Guariipplion Elth
+1100 | and distributing the Project G
+1200 | .
+
+[16 Augustus.]
+
+Wij verliet
+1300 | Junt Gutera (een der watervan 
+ epoch: 19
+0 | ord-Amerika verspreid zijn gew
+100 | t de onderstelling van de bewo
+200 | r de stad is een grooten afsta
+300 | ten bergen geleek het in de da
+400 | alas geleefd hebben, dat de ge
+500 | t der verschillende soorten va
+600 | Onmerken als zijne bewoners va
+700 | behoorende tot de voortbrengse
+800 | de bergen van de onderstelling
+900 | de verschillende eilanden in d
+1000 |  de struiken gevolg van de ver
+1100 | n van den dag van den vorm van
+1200 | zijn geweest zijn de bewoners 
+1300 |  voet hoog was, dat zij de vol
+ epoch: 20
+0 | gesteld door de bergen verspre
+100 | agle eene belangrijke strooken
+200 | ILITE DES WEIF STE NOTROSAS WL
+300 | te middellijn van den grond te
+400 | de bewoners van den gewonen ko
+500 | rdilleras en een aantal stroom
+600 |  stad op de kust van Patagonië
+700 | ord-Amerika bestaan van de voo
+800 | terhouse mijlen van de onderst
+900 |  "In bewijzen van de kust van 
+1000 | rk Minster begrijpen, dat de g
+1100 | De aardbeving van den berg San
+1200 |  te maken, dat de geheele oppe
+1300 |  een der voorwerpen op de kust
+ epoch: 21
+0 | 31] Ik merkte is het geslacht 
+100 |  op het eiland Chatham (ongeve
+200 | 0 voet boven de zee het geval 
+300 |  De aardbeving van den grond t
+400 | 3764] 
+De tooneelen der streek
+500 | durende den grond ligt met de 
+600 | n van de verschillende soorten
+700 |  over de rivier op de kust van
+800 | de bergen van de onderstelling
+900 | de verschillende eilanden in d
+1000 | n de verschillende streken van
+1100 | e Tijdvak, dat de bewoners van
+1200 | staan een der volgende dagen l
+1300 | s om het land is ontstaan zijn
+ epoch: 22
+0 | misschien op de kust van Peru 
+100 | behoorden te verwachten. Deze 
+200 | nuari.]
+
+Ik deel I, blz. 386.
+
+300 |  van de kust van Patagonië in 
+400 | dianen beschreven in de komst 
+500 | strekken, die de geheele opper
+600 | gunisch. Bij het zuiden van de
+700 | en Gould een gevolg is van de 
+800 | ne in een gevolg is van de ver
+900 | in de nabijheid van de verschi
+1000 | dat de groote verwondering van
+1100 | ten van den zeespiegel langs d
+1200 | die de stroom op de kust van P
+1300 |  grooten afstand van den grond
+ epoch: 23
+0 | ± 3.912.
+
+[290] Ik heb noordwa
+100 | n van de bewoners van de versc
+200 |  verschillende soorten van de 
+300 |  de bewoners van de verschille
+400 | behoorende tot de bewoners van
+500 | agle een tweede man een aantal
+600 | streken was. De onderstelling 
+700 | oor de verschillende soorten v
+800 | dat de bergen van de verschill
+900 | er afgezette aanvallen van de 
+1000 |  van de verschillende soorten 
+1100 | strekken van de verschillende 
+1200 | aces Fetosch en Albemarle geli
+1300 | geheel verschillende soorten v
+ epoch: 24
+0 |  de bergen verspreid zijn. De 
+100 | ar het geval is. De eerste ver
+200 | een kleine vogels op de kust v
+300 |  de geheele oppervlakte van he
+400 | agle een tijd van de verschill
+500 | gstond en de straten waren gew
+600 | dat de groote verwondering van
+700 | 
+
+
+[24 April.]
+
+Ik vergeleek v
+800 | van de kust van Patagonië is e
+900 | tagonië, die de geheele opperv
+1000 |  mijlen van de groote verwonde
+1100 | medeguwen te vergeefs van den 
+1200 | mijlen van de Cordilleras en d
+1300 | t verschijnsel gelegen, en daa
+ epoch: 25
+0 | n kleinen stand van den grond 
+100 | 3764] Ergen gelegenheid te zij
+200 | n zegt, dat de geheele oppervl
+300 | rk Minster zijn geweest zijn. 
+400 | rk Minster zag ik een klein st
+500 |  de geheele oppervlakte van de
+600 | ert.)
+
+[344] gekend is. De geh
+700 | u may copy it licht gelegen aa
+800 | n het geval is. De stad is zee
+900 | ogie der Straat van Magelhaen 
+1000 | ina het land van den weg was z
+1100 | RAITIES OR REALER.
+
+
+ HOOFDSTU
+1200 | n de bewoners van den dag was 
+1300 | 0 voet hoog was aan de oppervl
+ epoch: 26
+0 | en de geheele oppervlakte van 
+100 | n van de bewoners van den gron
+200 | 3 Maart.]
+
+De Beagle vertoonde
+300 | het geval is. Bij het geheel g
+400 | t geval is. Het geslacht werd,
+500 | 0 voet hoogt in de boomen ware
+600 | ogische gesteldheid van den gr
+700 | lklands-Eilanden waar de boot 
+800 | ogische gesteenten van het lan
+900 | Januariwe wonkelen van de vers
+1000 |  op het eiland Chatham (ongeve
+1100 | ngen Oceaan om de stad ontdekt
+1200 | 1731 vinden de stad is zeer we
+1300 | r de strook zandsteenen voorko
+ epoch: 27
+0 | Deze vogels op de kust van Pat
+100 | r de stad ontvangen en verschi
+200 | dianen bestaan, dat de groote 
+300 | 
+
+
+[222] Richardson, deel I, b
+400 | nuari 1835 voor het eiland Cha
+500 | Januari.]
+
+Ik deel I, blz. 154
+600 | e der aarde en beschaving van 
+700 | van de gewone koe zich in de n
+800 |  de verschillende soorten van 
+900 | gesteld door de kust van Patag
+1000 | in de hoofdstad van Chili zijn
+1100 | alas), die de gewone kanalen v
+1200 | 0 dans van het land is ontstaa
+1300 | agle zeilde het strand geheel 
+ epoch: 28
+0 | jn voor de bergen van den dag 
+100 | j die van den grond in de boot
+200 | n van de verschillende soorten
+300 | 3 Maart.]
+
+Wij liepen wij op d
+400 | ± 3                           
+500 | lucht en de verschillende soor
+600 | le landen en verscheidene geva
+700 | pounds gelegen. De volgende da
+800 | n van de stad ontdekt was. De 
+900 | De aanblik van de verschillend
+1000 | 
+
+
+[18 April.]
+
+De ellendige v
+1100 | jn gevormd was, waarvan de een
+1200 | rt.)
+
+[140] Hiermede bergen va
+1300 | een sterken van de verschillen
+ epoch: 29
+0 | gunige tanden van het land in 
+100 | de geheele oppervlakte van het
+200 |  den top van den dag van den g
+300 | ± 3  Hooptoy
+dezer dieren van 
+400 | gesteld door de boomen waren g
+500 | achapial vertelde mij, dat hij
+600 | t geval is. Behalve de mannen 
+700 | pootten der voor de gewone man
+800 | delijk door de geheele oppervl
+900 | lucht en de bewoners van de ve
+1000 |  Perne aan de oppervlakte van 
+1100 | van de verschillende kleuren v
+1200 | die de stad is zeer weinig van
+1300 |  mijlen van de onderstelling v
+ epoch: 30
+0 | tot 100 molden geleden was de 
+100 |  op het eiland Chatham (Vuurla
+200 | eeten staan van den grond was 
+300 | nuari 1835 tot 1832 was het ee
+400 | and het eene groote stad onder
+500 | erschillende soorten van den d
+600 |  dieren en verschillende soort
+700 | V.
+                           
+800 | Juli 1832.]
+
+Wij vervolgden on
+900 | De aanblik van de verschillend
+1000 | 00 tot 1500 voet hooge bergen 
+1100 | de bewoners van de verschillen
+1200 | ogie van de verschillende soor
+1300 | undation of Geology) een gevol
+ epoch: 31
+0 | oor de bergketen van de bewone
+100 | 0 voet boven de zee genoemd. I
+200 | 33. De vlakten van Patagonië i
+300 |  de verschillende soorten van 
+400 | De bewoners van den gewonen ko
+500 | van den vorm van een der verwo
+600 | EN DE ROO NGELEN  WATRES EBOOK
+700 | t geluid te vergezellend en op
+800 | RAAD (Therwiod could you may e
+900 | n van de verschillende soorten
+1000 | tagonië en Laguren en de stroo
+1100 | leiland in de boomen in de ver
+1200 | 0 voet hoogte, dat de geheele 
+1300 | een sterke kleuren van den gro
+ epoch: 32
+0 |  grooter dan de geheele opperv
+100 | t de stad ontvangen en verdeel
+200 | van den dag van den grond gest
+300 | behoorden, die de stroomen van
+400 |  bewerking en daar een gevolg 
+500 | ogie der Straat van Magelhaen 
+600 | 
+
+
+[25 Maart.]
+
+Wij verlieten 
+700 |  de voornaamste bewoners van d
+800 | durende de stad is zeer weinig
+900 | ontstaan en de gewone kust van
+1000 |  te midden van de verschillend
+1100 | 
+
+
+[15 Januari 1832.]
+
+Wij heb
+1200 | er den grond op de bewoners va
+1300 | illota-vallei, die de geheele 
+ epoch: 33
+0 | ert.)
+
+[336] Korig Lonis met d
+100 | Januariin wij den top van den 
+200 | 0 dat de geheele oppervlakte v
+300 |  Petise mij vertelde mij, dat 
+400 | de boomen waren geworden, dat 
+500 | de bergen van de verschillende
+600 | in de nabijheid van de Cordill
+700 | loterh or cter to cannetus or 
+800 |  de kust van Patagonië in de h
+900 | soorten van de kust van Patago
+1000 | n van de verschillende soorten
+1100 | een der watervan de bewoners v
+1200 | t de stad is zeer weinig van d
+1300 | n kleine vogels op de kust van
+ epoch: 34
+0 | en de geheele oppervlakte van 
+100 | n kleine stroomen verscheidene
+200 | Deze gewoonte om de zee te ber
+300 | and het eene belangrijke stroo
+400 |  voet boven de zee in de nabij
+500 | pallata-pas, die de groote ver
+600 |  man een gevolg van de onderst
+700 | ord-Amerika verschillende soor
+800 | rdilleras in de kust van Patag
+900 |  mijlen van de gewone kust van
+1000 | Het is een sterker aan de oppe
+1100 | le landen en verschillende soo
+1200 | r den grond op de kust van Pat
+1300 | eQuinqcet-Chili het geval is. 
+ epoch: 35
+0 | ord-Amerika verscheidene gevol
+100 | pounds met een grooten stand h
+200 | rmprges met een ongenooten van
+300 | gestelde plaatsen in de nabijh
+400 |  de verschillende soorten van 
+500 | t gesteente is ontstaan te ver
+600 | 0 April.]
+
+De ontzaglijke hoog
+700 | rschillende soorten van de ver
+800 | Z.B.) volgens de groote verwan
+900 | I) EN NINDIN YERE  IIS        
+1000 | de verschillende streken der v
+1100 | nerale en gewoonten van den ze
+1200 | staan uit een gevolg is van de
+1300 | n van de oorzaak van de onders
+ epoch: 36
+0 | 33. Men zegt, dat de verschill
+100 | wellicht zij onder den grond o
+200 | n van de verschillende soorten
+300 | tagonië tot aan de oppervlakte
+400 |  of de boomen waren geworpen, 
+500 | 0 April.]
+
+De staart van de op
+600 |  de verschillende soorten van 
+700 | gelsche planten bestaande zijn
+800 | e der Straat van Magelhaen van
+900 | het bezit van de onderstelling
+1000 | and zijn in de hoofdstad van P
+1100 | j zeiden, dat de groote verwan
+1200 | ông) en San N.-Zeeland 115°
+Z.
+1300 | n van de onderstelling van de 
+ epoch: 37
+0 | 3764]
+
+De visch ontstaan te vi
+100 | le landen en verschillende soo
+200 | medden van de ondergroep van d
+300 | eQuinia en de stad is zeer wei
+400 | 
+
+
+[223] De Portillo-keten in 
+500 | tagonië en de oppervlakte van 
+600 | I) EN
+NOG
+TRUNOOARRWNOVIN YOMA
+700 | Inemen--de geheele oppervlakte
+800 | illota-vallei, en de geheele o
+900 | 33. Men zegt, dat de geheele o
+1000 | eeten staart, dat de groote ve
+1100 | ala = wilded the Project Guten
+1200 | I) EN NIEUW-ZEBORE.
+
+1.x in Ja
+1300 | glaf van de oogen van de onder
+ epoch: 38
+0 | 33. Men zegt, dat de geheele o
+100 | ert.)
+
+[236] Kommander is de g
+200 | 33.]
+
+De Beagle zeilde uit de 
+300 | 
+
+
+[22 Januari.]
+
+Vroeg in den
+400 |  voet hoogte, dat de groote ve
+500 | glaf.org. 1.F.                
+600 | 
+
+1.E.9.  If you will this agr
+700 | ± 319. Het wordt de voornaamst
+800 | s om de groote hoeveelheid van
+900 | n de bewoners van de Cordiller
+1000 | Jaart 1834, blz. 251) in Chili
+1100 | voet boven de oppervlakte van 
+1200 | ông) en San N.UNG. W. on De Fr
+1300 | dat de geheele oppervlakte van
+ epoch: 39
+0 | 3764]
+
+De verschillende streke
+100 | eente tot de hoogere gedeelten
+200 | erschillende soorten van de on
+300 | de onderstelling van het land 
+400 | guaro in de meer voor de onder
+500 |  De Gauchos zeggen man een gro
+600 | meddaan is de geheele bergen v
+700 | I) EN NIENTEN-ZE11,15153      
+800 | voet hooge en gelijkenis in de
+900 | een der soorten van de verschi
+1000 | pond sterling van de verschill
+1100 | schreven hebben gebracht. In d
+1200 | ert.)
+
+[230] Rondgang der voge
+1300 | nd voor de verschillende soort
