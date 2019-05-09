@@ -36,7 +36,7 @@ class LSTM(nn.Module):
         self._batch_size = batch_size
         self._device = device
 
-        # candidate gate
+        # input modulation gate
         self._Wgx = nn.Parameter(torch.zeros(input_dim, num_hidden))
         self._Wgh = nn.Parameter(torch.zeros(num_hidden, num_hidden))
         self._bg = nn.Parameter(torch.zeros(batch_size, num_hidden))
@@ -51,7 +51,7 @@ class LSTM(nn.Module):
         self._Wfh = nn.Parameter(torch.zeros(num_hidden, num_hidden))
         self._bf = nn.Parameter(torch.zeros(batch_size, num_hidden))
 
-        # out gate
+        # output gate
         self._Wox = nn.Parameter(torch.zeros(input_dim, num_hidden))
         self._Woh = nn.Parameter(torch.zeros(num_hidden, num_hidden))
         self._bo = nn.Parameter(torch.zeros(batch_size, num_hidden))
