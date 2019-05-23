@@ -217,15 +217,16 @@ def epoch_iter(model, data, optimizer):
     bpd = 0
     for i, (imgs, _) in enumerate(data):
 
-        out = model.forward(imgs)
+        out = model(imgs)
         loss = - torch.mean(out)
 
         if model.training:
-            optimizer.zero_grad()
+            model.zero_grad()
             loss.backward()
             nn.utils.clip_grad_norm_(model.parameters(), max_norm=5.0)
+            optimizer.step()
 
-        bpd += loss.item()
+        bpd += loss.item() / 784
 
     avg_bpd = bpd / len(data)
     return avg_bpd
