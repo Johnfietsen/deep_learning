@@ -249,42 +249,48 @@ def run_epoch(model, data, optimizer, device):
     return train_bpd, val_bpd
 
 
-def save_bpd_plot(train_curve, val_curve, filename):
-    plt.figure(figsize=(12, 6))
-    plt.plot(train_curve, label='train bpd')
-    plt.plot(val_curve, label='validation bpd')
-    plt.legend()
-    plt.xlabel('epochs')
-    plt.ylabel('bpd')
-    plt.tight_layout()
-    plt.savefig(filename)
+# def save_bpd_plot(train_curve, val_curve, filename):
+#     plt.figure(figsize=(12, 6))
+#     plt.plot(train_curve, label='train bpd')
+#     plt.plot(val_curve, label='validation bpd')
+#     plt.legend()
+#     plt.xlabel('epochs')
+#     plt.ylabel('bpd')
+#     plt.tight_layout()
+#     plt.savefig(filename)
 
 
 def main():
     data = mnist()[:2]  # ignore test split
 
     model = Model(shape=[784]).to(ARGS.device)
-
     optimizer = torch.optim.Adam(model.parameters(), lr=1e-3)
 
-    os.makedirs('images_nfs', exist_ok=True)
+    start = datetime.now().strftime("%Y-%m-%d_%H:%M")
+    f_train = open('bpd_nf/train_' + start + '.txt', 'w')
+    f_valid = open('bpd_nf/valid_' + start + '.txt', 'w')
+
+    # os.makedirs('images_nfs', exist_ok=True)
 
     train_curve, val_curve = [], []
     for epoch in range(ARGS.epochs):
         bpds = run_epoch(model, data, optimizer, ARGS.device)
         train_bpd, val_bpd = bpds
-        train_curve.append(train_bpd)
-        val_curve.append(val_bpd)
+        # train_curve.append(train_bpd)
+        # val_curve.append(val_bpd)
         print("[Epoch {epoch}] train bpd: {train_bpd} val_bpd: {val_bpd}".format(
             epoch=epoch, train_bpd=train_bpd, val_bpd=val_bpd))
+        f_train.write(', ' + str(train_bpd))
+        f_valid.write(', ' + str(val_bpd))
 
         # --------------------------------------------------------------------
         #  Add functionality to plot samples from model during training.
         #  You can use the make_grid functionality that is already imported.
         #  Save grid to images_nfs/
         # --------------------------------------------------------------------
-
-    save_bpd_plot(train_curve, val_curve, 'nfs_bpd.png')
+    f_train.close()
+    f_valid.close()
+    # save_bpd_plot(train_curve, val_curve, 'nfs_bpd.png')
 
 
 if __name__ == "__main__":
