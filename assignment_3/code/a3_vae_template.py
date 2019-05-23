@@ -187,7 +187,7 @@ def main():
             plt.figure(figsize=(8, 10))
             plt.imshow(grid, origin="upper", cmap="gray")
             plt.tight_layout()
-            plt.savefig("manifold_ + str(start) + '.png')
+            plt.savefig('manifold_ + str(start) + '.png')
 
     sample_images, _ = model.sample(16)
     grid = make_grid(sample_images.detach(), nrow=4, padding=0)
