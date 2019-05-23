@@ -138,10 +138,10 @@ def main():
     # Initialize models and optimizers
     generator = Generator().to(args.device)
     discriminator = Discriminator().to(args.device)
-    optimizer_G = torch.optim.Adam(generator.parameters(), lr=args.lr,\
-                                   device=args.device)
-    optimizer_D = torch.optim.Adam(discriminator.parameters(), lr=args.lr,\
-                                   device=args.device)
+    optimizer_G = torch.optim.Adam(generator.parameters(), lr=args.lr)\
+                  .to(device)
+    optimizer_D = torch.optim.Adam(discriminator.parameters(), lr=args.lr)\
+                  .to(device)
 
     # Start training
     train(dataloader, discriminator, generator, optimizer_G, optimizer_D,
