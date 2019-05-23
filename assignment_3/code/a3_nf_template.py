@@ -15,7 +15,10 @@ def log_prior(x):
     Compute the elementwise log probability of a standard Gaussian, i.e.
     N(x | mu=0, sigma=1).
     """
-    raise NotImplementedError
+
+    logp = torch.sum(-0.5 * (x ** 2) \
+           - torch.log(torch.sqrt(torch.tensor(2 * np.pi))))
+
     return logp
 
 
@@ -23,7 +26,8 @@ def sample_prior(size):
     """
     Sample from a standard Gaussian.
     """
-    raise NotImplementedError
+
+    sample = torch.randn(size)
 
     if torch.cuda.is_available():
         sample = sample.cuda()
@@ -47,22 +51,36 @@ def get_mask():
 class Coupling(torch.nn.Module):
     def __init__(self, c_in, mask, n_hidden=1024):
         super().__init__()
-        self.n_hidden = n_hidden
+        self._n_hidden = n_hidden
 
         # Assigns mask to self.mask and creates reference for pytorch.
-        self.register_buffer('mask', mask)
+        self.register_buffer('_mask', mask)
 
         # Create shared architecture to generate both the translation and
         # scale variables.
         # Suggestion: Linear ReLU Linear ReLU Linear.
-        self.nn = torch.nn.Sequential(
-            None
+        self._nn = nn.Sequential(
+            nn.Linear(c_in, n_hidden),
+            nn.ReLU(),
+            nn.Linear(n_hidden, n_hidden),
+            nn.ReLU()
+            )
+
+        self._translation = nn.Sequential(
+            nn.Linear(n_hidden, c_in)
+            )
+
+        self._scale = nn.Sequential(
+            nn.Linear(n_hidden, c_in),
+            nn.Tanh()
             )
 
         # The nn should be initialized such that the weights of the last layer
         # is zero, so that its initial transform is identity.
-        self.nn[-1].weight.data.zero_()
-        self.nn[-1].bias.data.zero_()
+        self._translation[0].weight.data.zero_()
+        self._translation[0].bias.data.zero_()
+        self._scale[0].weight.data.zero_()
+        self._scale[0].bias.data.zero_()
 
     def forward(self, z, ldj, reverse=False):
         # Implement the forward and inverse for an affine coupling layer. Split
@@ -74,10 +92,22 @@ class Coupling(torch.nn.Module):
         # log_scale = tanh(h), where h is the scale-output
         # from the NN.
 
+        masked_z = z * self._mask
+
+        out_nn = self._nn(masked_z)
+        out_trans = self._translation(out_nn)
+        out_scale = self._scale(out_nn)
+
         if not reverse:
-            raise NotImplementedError
+            z = masked_z + (1 - self._mask) * (z * torch.exp(out_scale) \
+                                               + out_trans)
+            ldj += torch.sum((1 - self._mask) * out_scale, dim=1)
+
         else:
-            raise NotImplementedError
+            z = masked_z + (1 - self._mask) \
+                * (z - out_trans) * torch.exp(out_scale)
+
+            ldj = torch.zeros_like(ldj)
 
         return z, ldj
 
@@ -156,8 +186,8 @@ class Model(nn.Module):
         z, ldj = self.flow(z, ldj)
 
         # Compute log_pz and log_px per example
-
-        raise NotImplementedError
+        log_pz = log_prior(z)
+        log_px = log_pz + ldj
 
         return log_px
 
@@ -169,7 +199,8 @@ class Model(nn.Module):
         z = sample_prior((n_samples,) + self.flow.z_shape)
         ldj = torch.zeros(z.size(0), device=z.device)
 
-        raise NotImplementedError
+        z, ldj = self.flow (z, ldj, reverse=True)
+        z, _ = self.logit_normalize(z, ldj, reverse=True)
 
         return z
 
@@ -183,8 +214,20 @@ def epoch_iter(model, data, optimizer):
     log_2 likelihood per dimension) averaged over the complete epoch.
     """
 
-    avg_bpd = None
+    bpd = 0
+    for i, (imgs, _) in enumerate(data):
 
+        out = model.forward(imgs)
+        loss = - torch.mean(out)
+
+        if model.training:
+            optimizer.zero_grad()
+            loss.backward()
+            nn.utils.clip_grad_norm_(model.parameters(), max_norm=5.0)
+
+        bpd += loss.item()
+
+    avg_bpd = bdp / len(data)
     return avg_bpd
 
 
@@ -228,9 +271,13 @@ def main():
 
     train_curve, val_curve = [], []
     for epoch in range(ARGS.epochs):
+        print('1')
         bpds = run_epoch(model, data, optimizer)
+        print('2')
         train_bpd, val_bpd = bpds
+        print('3')
         train_curve.append(train_bpd)
+        print('4')
         val_curve.append(val_bpd)
         print("[Epoch {epoch}] train bpd: {train_bpd} val_bpd: {val_bpd}".format(
             epoch=epoch, train_bpd=train_bpd, val_bpd=val_bpd))
