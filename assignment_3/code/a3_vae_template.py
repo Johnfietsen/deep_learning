@@ -171,11 +171,22 @@ def main():
             grid = make_grid(sample_images.detach(), nrow=4, padding=0)
             save_image(grid, 'samples_vae/middle_' + str(start) + '.png')
 
-    # --------------------------------------------------------------------
-    #  Add functionality to plot plot the learned data manifold after
-    #  if required (i.e., if zdim == 2). You can use the make_grid
-    #  functionality that is already imported.
-    # --------------------------------------------------------------------
+    if ARGS.zdim == 2:
+        with torch.no_grad():
+            grid = np.empty((420, 420))
+            for i, y in enumerate(np.linspace(.05, .95, 15)):
+                for j, x in enumerate(np.linspace(.05, .95, 15)):
+                    # Use ppf to sample the correct spot that matches the 0.05 to 0.95 area
+                    noise = torch.tensor(np.array([[norm.ppf(x), norm.ppf(y)]])\
+                            .astype('float32')).to(device)
+                    means = model.decoder(noise)
+                    grid[(14-i)*28:(15-i)*28, j*28:(j+1)*28] = means\
+                                            .reshape(28, 28).cpu().data.numpy()
+
+            plt.figure(figsize=(8, 10))
+            plt.imshow(grid, origin="upper", cmap="gray")
+            plt.tight_layout()
+            plt.savefig("manifold.png")
 
     sample_images, _ = model.sample(16)
     grid = make_grid(sample_images.detach(), nrow=4, padding=0)
