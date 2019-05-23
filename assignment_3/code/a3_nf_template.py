@@ -238,7 +238,10 @@ def run_epoch(model, data, optimizer, device):
     """
     Run a train and validation epoch and return average bpd for each.
     """
-    traindata, valdata = data.to(device)
+    traindata, valdata = data
+
+    traindata = traindata.to(device)
+    valdata = valdata.to(device)
 
     model.train()
     train_bpd = epoch_iter(model, traindata, optimizer, device)
