@@ -74,17 +74,17 @@ def train(dataloader, discriminator, generator, optimizer_G, optimizer_D,
             # imgs.cuda()
             # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
+            random_nrs = torch.randn(batch_size, args.latent_dim).to(device)
+
             # Train Generator
-            out_G = generator(torch.randn(batch_size, args.latent_dim))\
-                    .to(device)
+            out_G = generator(random_nrs).to(device)
             loss_G = torch.sum(- torch.log(discriminator(out_G))).to(device)
             optimizer_G.zero_grad()
             loss_G.backward(retain_graph=True)
             optimizer_G.step()
 
             # Train Discriminator
-            out_G = generator(torch.randn(batch_size, args.latent_dim))\
-                    .to(device)
+            out_G = generator(random_nrs).to(device)
             out_D_f = discriminator(out_G).to(device)
             out_D_r = discriminator(imgs).to(device)
             loss_D = torch.sum(- (torch.log(out_D_r) + torch.log(1 - out_D_f)))\
