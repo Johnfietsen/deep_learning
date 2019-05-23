@@ -1,5 +1,6 @@
 import argparse
 from datetime import datetime
+from scipy.stats import norm
 
 import torch
 import torch.nn as nn
@@ -177,16 +178,16 @@ def main():
             for i, y in enumerate(np.linspace(.05, .95, 15)):
                 for j, x in enumerate(np.linspace(.05, .95, 15)):
                     # Use ppf to sample the correct spot that matches the 0.05 to 0.95 area
-                    noise = torch.randn(x, y).to(device)\
-                            .to(device)
-                    means = model.decoder(noise)
+                    noise = torch.tensor(np.array([[norm.ppf(x), norm.ppf(y)]])\
+                            .astype('float32'))
+                    means = model._decoder(noise)
                     grid[(14-i)*28:(15-i)*28, j*28:(j+1)*28] = means\
-                                            .reshape(28, 28).cpu().data.numpy()
+                                            .reshape(28, 28).data.numpy()
 
             plt.figure(figsize=(8, 10))
             plt.imshow(grid, origin="upper", cmap="gray")
             plt.tight_layout()
-            plt.savefig("manifold.png")
+            plt.savefig("manifold_ + str(start) + '.png')
 
     sample_images, _ = model.sample(16)
     grid = make_grid(sample_images.detach(), nrow=4, padding=0)
