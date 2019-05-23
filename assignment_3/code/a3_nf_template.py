@@ -240,9 +240,6 @@ def run_epoch(model, data, optimizer, device):
     """
     traindata, valdata = data
 
-    traindata = traindata.to(device)
-    valdata = valdata.to(device)
-
     model.train()
     train_bpd = epoch_iter(model, traindata, optimizer, device)
 
