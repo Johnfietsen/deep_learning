@@ -214,11 +214,13 @@ def epoch_iter(model, data, optimizer):
     log_2 likelihood per dimension) averaged over the complete epoch.
     """
 
-    bpd = 0
+    bpd = 0.to(device)
     for i, (imgs, _) in enumerate(data):
 
-        out = model(imgs)
-        loss = - torch.mean(out)
+        imgs = imgs.to(device)
+
+        out = model(imgs).to(device)
+        loss = - torch.mean(out).to(device)
 
         if model.training:
             model.zero_grad()
@@ -226,23 +228,23 @@ def epoch_iter(model, data, optimizer):
             nn.utils.clip_grad_norm_(model.parameters(), max_norm=5.0)
             optimizer.step()
 
-        bpd += loss.item() / 784
+        bpd += (loss.item() / 784).to(device)
 
     avg_bpd = bpd / len(data)
     return avg_bpd
 
 
-def run_epoch(model, data, optimizer):
+def run_epoch(model, data, optimizer, device):
     """
     Run a train and validation epoch and return average bpd for each.
     """
-    traindata, valdata = data
+    traindata, valdata = data.to(device)
 
     model.train()
-    train_bpd = epoch_iter(model, traindata, optimizer)
+    train_bpd = epoch_iter(model, traindata, optimizer, device)
 
     model.eval()
-    val_bpd = epoch_iter(model, valdata, optimizer)
+    val_bpd = epoch_iter(model, valdata, optimizer, device)
 
     return train_bpd, val_bpd
 
@@ -261,10 +263,7 @@ def save_bpd_plot(train_curve, val_curve, filename):
 def main():
     data = mnist()[:2]  # ignore test split
 
-    model = Model(shape=[784])
-
-    if torch.cuda.is_available():
-        model = model.cuda()
+    model = Model(shape=[784]).to(ARGS.device)
 
     optimizer = torch.optim.Adam(model.parameters(), lr=1e-3)
 
@@ -272,7 +271,7 @@ def main():
 
     train_curve, val_curve = [], []
     for epoch in range(ARGS.epochs):
-        bpds = run_epoch(model, data, optimizer)
+        bpds = run_epoch(model, data, optimizer, ARGS.device)
         train_bpd, val_bpd = bpds
         train_curve.append(train_bpd)
         val_curve.append(val_bpd)
@@ -292,6 +291,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--epochs', default=40, type=int,
                         help='max number of epochs')
+    parser.add_argument('--device', type=str, default="cuda:0",
+                        help="Training device 'cpu' or 'cuda:0'")
 
     ARGS = parser.parse_args()
 
