@@ -227,7 +227,7 @@ def epoch_iter(model, data, optimizer):
 
         bpd += loss.item()
 
-    avg_bpd = bdp / len(data)
+    avg_bpd = bpd / len(data)
     return avg_bpd
 
 
@@ -271,13 +271,9 @@ def main():
 
     train_curve, val_curve = [], []
     for epoch in range(ARGS.epochs):
-        print('1')
         bpds = run_epoch(model, data, optimizer)
-        print('2')
         train_bpd, val_bpd = bpds
-        print('3')
         train_curve.append(train_bpd)
-        print('4')
         val_curve.append(val_bpd)
         print("[Epoch {epoch}] train bpd: {train_bpd} val_bpd: {val_bpd}".format(
             epoch=epoch, train_bpd=train_bpd, val_bpd=val_bpd))
@@ -288,7 +284,7 @@ def main():
         #  Save grid to images_nfs/
         # --------------------------------------------------------------------
 
-    save_bpd_plot(train_curve, val_curve, 'nfs_bpd.pdf')
+    save_bpd_plot(train_curve, val_curve, 'nfs_bpd.png')
 
 
 if __name__ == "__main__":
