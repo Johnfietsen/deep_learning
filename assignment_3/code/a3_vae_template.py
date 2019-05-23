@@ -177,8 +177,8 @@ def main():
             for i, y in enumerate(np.linspace(.05, .95, 15)):
                 for j, x in enumerate(np.linspace(.05, .95, 15)):
                     # Use ppf to sample the correct spot that matches the 0.05 to 0.95 area
-                    noise = torch.tensor(np.array([[norm.ppf(x), norm.ppf(y)]])\
-                            .astype('float32')).to(device)
+                    noise = torch.randn(x, y).to(device)\
+                            .to(device)
                     means = model.decoder(noise)
                     grid[(14-i)*28:(15-i)*28, j*28:(j+1)*28] = means\
                                             .reshape(28, 28).cpu().data.numpy()
