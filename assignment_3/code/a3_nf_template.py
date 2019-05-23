@@ -214,7 +214,7 @@ def epoch_iter(model, data, optimizer):
     log_2 likelihood per dimension) averaged over the complete epoch.
     """
 
-    bpd = 0.to(device)
+    bpd = 0
     for i, (imgs, _) in enumerate(data):
 
         imgs = imgs.to(device)
@@ -228,7 +228,7 @@ def epoch_iter(model, data, optimizer):
             nn.utils.clip_grad_norm_(model.parameters(), max_norm=5.0)
             optimizer.step()
 
-        bpd += (loss.item() / 784).to(device)
+        bpd += loss.item() / 784
 
     avg_bpd = bpd / len(data)
     return avg_bpd
