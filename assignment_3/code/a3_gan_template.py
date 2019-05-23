@@ -5,7 +5,7 @@ from datetime import datetime
 import torch
 import torch.nn as nn
 import torchvision.transforms as transforms
-from torchvision.utils import save_image
+from torchvision.utils import make_grid, save_image
 from torchvision import datasets
 
 
@@ -48,13 +48,23 @@ class Discriminator(nn.Module):
         return self._model(img)
 
 
-def train(dataloader, discriminator, generator, optimizer_G, optimizer_D):
+def train(dataloader, discriminator, generator, optimizer_G, optimizer_D,
+          device):
 
     start = datetime.now().strftime("%Y-%m-%d_%H:%M")
-    f_G = open('losses/G_' + start + '.txt', 'w')
-    f_D = open('losses/D_' + start + '.txt', 'w')
+    f_G = open('losses_gan/G_' + start + '.txt', 'w')
+    f_D = open('losses_gan/D_' + start + '.txt', 'w')
 
     for epoch in range(args.n_epochs):
+
+        if epoch == 1:
+            grid = make_grid(out_G[:25].view(-1, 1, 28, 28), nrow=5, padding=0)
+            save_image(grid, 'samples_gan/start_' + str(start) + '.png')
+
+        if epoch == args.n_epochs / 2 - 1 or epoch == args.n_epochs / 2 - 0.5:
+            grid = make_grid(out_G[:25].view(-1, 1, 28, 28), nrow=5, padding=0)
+            save_image(grid, 'samples_gan/middle_' + str(start) + '.png')
+
         for i, (imgs, _) in enumerate(dataloader):
 
             imgs = imgs.view(-1, 784)
@@ -65,16 +75,20 @@ def train(dataloader, discriminator, generator, optimizer_G, optimizer_D):
             # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
             # Train Generator
-            out_G = generator(torch.randn(batch_size, args.latent_dim))
-            loss_G = - torch.log(discriminator(out_G)).sum()
+            out_G = generator(torch.randn(batch_size, args.latent_dim))\
+                    .to(device)
+            loss_G = torch.sum(- torch.log(discriminator(out_G))).to(device)
             optimizer_G.zero_grad()
             loss_G.backward(retain_graph=True)
             optimizer_G.step()
 
             # Train Discriminator
-            out_D_f = discriminator(out_G)
-            out_D_r = discriminator(imgs)
-            loss_D = - (torch.log(out_D_r) + torch.log(1 - out_D_f)).sum()
+            out_G = generator(torch.randn(batch_size, args.latent_dim))\
+                    .to(device)
+            out_D_f = discriminator(out_G).to(device)
+            out_D_r = discriminator(imgs).to(device)
+            loss_D = torch.sum(- (torch.log(out_D_r) + torch.log(1 - out_D_f)))\
+                     .to(device)
             optimizer_D.zero_grad()
             loss_D.backward()
             optimizer_D.step()
@@ -89,15 +103,19 @@ def train(dataloader, discriminator, generator, optimizer_G, optimizer_D):
                 # save_image(gen_imgs[:25],
                 #            'images/{}.png'.format(batches_done),
                 #            nrow=5, normalize=True)
+
                 print("[{}] Step {:06d}/{:06d}, Batch Size = {} \
                        Loss G = {:.4f}, Loss D = {:.4f}".format(
                         datetime.now().strftime("%Y-%m-%d %H:%M"), batches_done,
                         args.n_epochs * len(dataloader), args.batch_size, \
                         loss_G, loss_D
                 ))
-                # accuracies += str(accuracy) + ", "
+
                 f_G.write(', ' + str(loss_G.item()))
                 f_D.write(', ' + str(loss_D.item()))
+
+    grid = make_grid(out_G[:25].view(-1, 1, 28, 28), nrow=5, padding=0)
+    save_image(grid, 'samples_gan/end_' + str(start) + '.png')
 
     f_G.close()
     f_D.close()
@@ -118,13 +136,16 @@ def main():
         batch_size=args.batch_size, shuffle=True)
 
     # Initialize models and optimizers
-    generator = Generator()
-    discriminator = Discriminator()
-    optimizer_G = torch.optim.Adam(generator.parameters(), lr=args.lr)
-    optimizer_D = torch.optim.Adam(discriminator.parameters(), lr=args.lr)
+    generator = Generator().to(args.device)
+    discriminator = Discriminator().to(args.device)
+    optimizer_G = torch.optim.Adam(generator.parameters(), lr=args.lr,\
+                                   device=args.device)
+    optimizer_D = torch.optim.Adam(discriminator.parameters(), lr=args.lr,\
+                                   device=args.device)
 
     # Start training
-    train(dataloader, discriminator, generator, optimizer_G, optimizer_D)
+    train(dataloader, discriminator, generator, optimizer_G, optimizer_D,
+          args.device)
 
     # You can save your generator here to re-use it to generate images for your
     # report, e.g.:
@@ -143,6 +164,9 @@ if __name__ == "__main__":
                         help='dimensionality of the latent space')
     parser.add_argument('--save_interval', type=int, default=500,
                         help='save every SAVE_INTERVAL iterations')
+    parser.add_argument('--device', type=str, default="cuda:0",
+                        help="Training device 'cpu' or 'cuda:0'")
+
     args = parser.parse_args()
 
     main()

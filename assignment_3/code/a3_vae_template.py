@@ -150,12 +150,12 @@ def main():
     optimizer = torch.optim.Adam(model.parameters())
 
     start = datetime.now().strftime("%Y-%m-%d_%H:%M")
-    f_train = open('elbos/train_' + start + '.txt', 'w')
-    f_valid = open('elbos/valid_' + start + '.txt', 'w')
+    f_train = open('elbos_vae/train_' + start + '.txt', 'w')
+    f_valid = open('elbos_vae/valid_' + start + '.txt', 'w')
 
     sample_images, _ = model.sample(16)
     grid = make_grid(sample_images.detach(), nrow=4, padding=0)
-    save_image(grid, 'samples/start_' + str(start) + '.png')
+    save_image(grid, 'samples_vae/start_' + str(start) + '.png')
 
     train_curve, val_curve = [], []
     for epoch in range(ARGS.epochs):
@@ -169,7 +169,7 @@ def main():
         if epoch == ARGS.epochs / 2 - 1 or epoch == ARGS.epochs / 2 - 0.5:
             sample_images, _ = model.sample(16)
             grid = make_grid(sample_images.detach(), nrow=4, padding=0)
-            save_image(grid, 'samples/middle_' + str(start) + '.png')
+            save_image(grid, 'samples_vae/middle_' + str(start) + '.png')
 
     # --------------------------------------------------------------------
     #  Add functionality to plot plot the learned data manifold after
@@ -179,7 +179,7 @@ def main():
 
     sample_images, _ = model.sample(16)
     grid = make_grid(sample_images.detach(), nrow=4, padding=0)
-    save_image(grid, 'samples/end_' + str(start) + '.png')
+    save_image(grid, 'samples_vae/end_' + str(start) + '.png')
     # save_grid(sample_images.detach(), 'samples/end_' + str(start))
 
     f_train.close()
