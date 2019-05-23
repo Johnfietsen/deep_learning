@@ -67,7 +67,7 @@ def train(dataloader, discriminator, generator, optimizer_G, optimizer_D,
 
         for i, (imgs, _) in enumerate(dataloader):
 
-            imgs = imgs.view(-1, 784)
+            imgs = imgs.view(-1, 784).to(device)
             batch_size = imgs.shape[0]
 
             # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
